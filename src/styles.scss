@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: montserrat-bold ;
+  src: url(./assets/fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+  font-family: montserrat-regular ;
+  src: url(./assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+body{
+  background-color: rgb(41, 41, 41);
+}

@@ -1,0 +1,74 @@
+<header class="fixedBox" [ngClass]="headerElse" #fixedBox>
+   <div class="header-top">
+      <div class="header-top-container">
+         <div class="lang">
+            <span class="active">УКР</span>
+            <span>РУС</span>
+            <div class="phone-top">
+               <img src="assets/images/pngegg.png">
+               <span class="phone">+38 (096) 156 18 55</span>
+            </div>
+         </div>
+         <div class="login" *ngIf="!isLogin">
+            <a [routerLink]="[ '/login']">Увійти</a>
+         </div>
+         <div class="login" *ngIf="adminLogin">
+            <a [routerLink]="[ 'admin']">Адмін</a>
+         </div>
+         <div class="login" *ngIf="userLogin">
+            <a [routerLink]="[ 'admin']">Профайл</a>
+         </div>
+      </div>
+   </div>
+   <div class="header-container">
+      <div class="logo-wrapper">
+         <a [routerLink]="['']">
+            <img src="assets/images/logo.png">
+         </a>
+      </div>
+      <nav>
+         <ul class="nav-wrapper">
+            <li class="nav-link">
+               <a class="nav-link-item">Аксесуари</a>
+               <ul class="nav-link-dropdown">
+                  <li> <img src="assets/images/angle-double-right.svg"> Щітки склоочисника</li>
+                  <li> <img src="assets/images/angle-double-right.svg"> Акумулятори</li>
+                  <li> <img src="assets/images/angle-double-right.svg"> Лампочки</li>
+                  <li> <img src="assets/images/angle-double-right.svg"> Бризговики</li>
+               </ul>
+            </li>
+
+            <li class="nav-link">
+               <a class="nav-link-item">Масла</a>
+               <ul class="nav-link-dropdown">
+                  <li> <img src="assets/images/angle-double-right.svg"> Трансмісійні</li>
+                  <li> <img src="assets/images/angle-double-right.svg"> Моторні</li>
+               </ul>
+            </li>
+            <li class="nav-link">
+               <a class="nav-link-item">Teх Рідини</a>
+               <ul class="nav-link-dropdown">
+                  <li> <img src="assets/images/angle-double-right.svg"> Антифриз</li>
+                  <li> <img src="assets/images/angle-double-right.svg"> Тормозна Рідина</li>
+                  <li> <img src="assets/images/angle-double-right.svg"> Рідина гідропідсилювача</li>
+               </ul>
+            </li>
+            <li class="nav-link">
+               <a class="nav-link-item" [routerLink]="[ '/catalog']">Пошук по Авто</a>
+            </li>
+         </ul>
+      </nav>
+      <div class="search-wrapper">
+         <input class="search" type="search" placeholder="Пошук">
+         <div class="search-button">
+            <img src="assets/images/search.svg">
+         </div>
+      </div>
+      <a [routerLink]="['/basket']">
+         <div class="basket">
+            <img src="assets/images/basket.svg">
+            <span> 0 грн </span>
+         </div>
+      </a>
+   </div>
+</header>

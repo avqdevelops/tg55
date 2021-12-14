@@ -1,0 +1,30 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ 'category' ]" routerLinkActive="active">Kатегорії</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ 'sub-category' ]" routerLinkActive="active">Під категорії</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ 'products' ]" routerLinkActive="active">Продукти</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ 'models' ]" routerLinkActive="active">Моделі Авто</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ 'orders' ]" routerLinkActive="active">Замовлення</a>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-success"  [routerLink]="[ '' ]" >На головну</button>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-danger" (click)="logOut()">Вийти</button>
+                </li>
+            </ul>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</section>

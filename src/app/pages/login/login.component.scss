@@ -1,0 +1,204 @@
+@import '../../shared/style/variables';
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  cursor: pointer;
+}
+span{
+  color: white;
+}
+a {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  text-decoration: none;
+  &:focus {
+    outline: none !important;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #0b5ed7;
+  }
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgb(41, 41, 41);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login_wrapper {
+    width: 500px;
+    height: 580px;
+    position: relative;
+    border-radius: 10px;
+    perspective: 1000px;
+    font-family: $montserrat-regular;
+
+    .login, .register {
+      padding: 20px 55px 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      transition: 1.5s;
+      backface-visibility: hidden;
+      background-color: rgba(19, 19, 31, 0.641);
+      box-shadow: 0 0 10px 0 #000000;
+      border-radius: 10px;
+
+      .login_title {
+        display: block;
+        font-family: $montserrat-bold;
+        font-size: 39px;
+        color: #fff;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      .wrap-input100 {
+        width: 100%;
+        position: relative;
+        border-bottom: 2px solid #d9d9d9;
+        margin: 30px 0 0;
+
+        .label-input100 {
+          font-family: $montserrat-regular;
+          font-size: 14px;
+          color: #fff;
+          line-height: 1.5;
+          padding-left: 7px;
+        }
+
+        .input100 {
+          border: none;
+          outline: none;
+          font-family: $montserrat-regular;
+          font-size: 16px;
+          color: #333333;
+          line-height: 1.2;
+          display: block;
+          width: 100%;
+          height: 55px;
+          background: transparent;
+          padding: 0 7px 0 43px;
+        }
+
+        .focus-input100 {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+
+          &::after {
+            content: attr(data-symbol);
+            font-family: Material-Design-Iconic-Font;
+            color: #adadad;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            height: calc(100% - 20px);
+            bottom: 0;
+            left: 0;
+            padding-left: 13px;
+            padding-top: 3px;
+          }
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0b5ed7;
+            transition: all 0.4s;
+          }
+        }
+       
+        .input100:focus + .focus-input100::before {
+          width: 100%;
+        }
+
+        .has-val.input100 + .focus-input100::before {
+          width: 100%;
+        }
+
+        .input100:focus + .focus-input100::after {
+          color: #0b5ed7;
+        }
+
+        // .has-val.input100 + .focus-input100::after {
+        //   color: #a64bf4;
+        // }
+      }
+      .login100-form-btn {
+        margin: 40px 0 30px ;
+        font-family: $montserrat-bold;
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.2;
+        text-transform: uppercase;
+        padding: 0 20px;
+        width: 100%;
+        height: 50px;
+         border: none;
+         outline: none;
+      }
+      .flex-c-m{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .login100-social-item {
+
+        font-size: 25px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 20px 5px ;       
+      }
+      .bg1{
+        background-color: #3b5998;
+       }
+      .bg2{
+        background-color: #ea4335;
+       }
+      
+      .login100-social-item:hover {
+        color: #fff;
+        background-color: #525252;
+      }
+    }
+  }
+}
+.register {
+  transform: rotateY(180deg);
+}
+.moveRegister{
+ transform: rotateY(180deg);}
+.moveLogin {
+ transform: rotateY(360deg);}
+
+
+
