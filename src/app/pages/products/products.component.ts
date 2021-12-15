@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
+  public rangeValue = '0'
   constructor() { }
 
   ngOnInit(): void {

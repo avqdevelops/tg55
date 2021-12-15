@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +36,7 @@ import { ProductsComponent } from './pages/products/products.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
