@@ -29,10 +29,10 @@
             <li class="nav-link">
                <a class="nav-link-item">Аксесуари</a>
                <ul class="nav-link-dropdown">
-                  <li> <img src="assets/images/angle-double-right.svg"> Щітки склоочисника</li>
-                  <li> <img src="assets/images/angle-double-right.svg"> Акумулятори</li>
-                  <li> <img src="assets/images/angle-double-right.svg"> Лампочки</li>
-                  <li> <img src="assets/images/angle-double-right.svg"> Бризговики</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Щітки склоочисника</li>
+                  <li [routerLink]="[ '/products/фві' ]">  <img src="assets/images/angle-double-right.svg"> Акумулятори</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Лампочки</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Бризговики</li>
                </ul>
             </li>
 
@@ -65,7 +65,7 @@
       <div class="basket-item">
          <a (click)="openModal(true)">
             <div class="basket">
-               <span> {{9300 |currency: 'UAH'}}</span>
+               <span> 0 грн </span>
             </div>
          </a>
          <div class="modal-basket">

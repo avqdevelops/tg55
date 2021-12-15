@@ -8,10 +8,12 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import {LoginComponent} from "./pages/login/login.component";
 import { AdminLoginGuard } from './shared/guard/adminLogin/admin-login.guard';
+import { ProductsComponent } from './pages/products/products.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'login', component:LoginComponent},
+  {path: 'products/:category', component: ProductsComponent },
   {path: 'admin', component:AdminComponent , canActivate: [AdminLoginGuard],children:[
     { path: '', pathMatch: 'full', redirectTo: 'category' },
     {path:'category',component:AdminCategoryComponent},
