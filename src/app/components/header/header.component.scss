@@ -1,5 +1,4 @@
 header {
-    background-color: transparent;
     position: fixed;
     width: 100%;
     z-index: 5;
@@ -166,7 +165,7 @@ header {
             text-decoration: none;
             .basket {
                 height: 70px;
-                width: 100px;
+                width: 150px;
                 display: flex;
                 align-items: center;
                 flex-direction: column;
