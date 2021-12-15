@@ -50,14 +50,14 @@ header {
             }
         }
     }
-    
+
     .header-container {
         height: 100px;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         .logo-wrapper {
-            width: 250px;
+            width: 220px;
             height: 60px;
             img {
                 height: inherit;
@@ -71,12 +71,13 @@ header {
                 .nav-link {
                     height: inherit;
                     list-style: none;
-                    width: 150px;
+                    width: 180px;
                     position: relative;
                     &-item {
                         width: 100%;
                         height: 100%;
                         display: flex;
+                        text-decoration: none;
                         align-items: center;
                         justify-content: center;
                         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -92,11 +93,11 @@ header {
                         overflow: hidden;
                         width: 300px;
                         list-style: none;
-                        background-color: rgb(20, 20, 20);
+                        background-color: rgb(15, 15, 15);
                         color: white;
                         border-bottom-left-radius: 10px;
                         border-top-right-radius: 10px;
-                        transition: all 0.5s;
+                        transition: all 0.2s;
                         li {
                             padding: 0 10px;
                             margin: 20px 0;
@@ -114,7 +115,7 @@ header {
                                 width: 35px;
                             }
                             color: white;
-                            font-size: 21px;
+                            font-size: 16px;
                         }
                     }
                 }
@@ -127,7 +128,7 @@ header {
                         font-size: 20px;
                         color: #0101c4da;
                     }
-                    margin: 5px 0;
+                    margin: 2px 0;
                     transition: all 0.5s;
                 }
             }
@@ -160,6 +161,7 @@ header {
                 }
             }
         }
+       .basket-item{
         a {
             text-decoration: none;
             .basket {
@@ -170,15 +172,62 @@ header {
                 flex-direction: column;
                 justify-content: center;
                 color: white;
-                img {
-                    width: 50%;
-                    height: 70%;
-                }
                 span {
                     font-size: 14px;
+                    &:hover {
+                        color: #0b5ed7;
+                    }
+                }
+                ::before {
+                    content: "\f291";
+                    font-family: "FontAwesome";
+                    font-size: 22px;
+                    margin: 0 5px 0 0;
                 }
             }
         }
+        .modal-basket {
+            display: none;
+            width: 300px;
+            height: 100px;
+            background-color: rgb(14, 14, 14);
+            position: absolute;
+            right: 30px;
+            .content{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    top: 5px;
+                    right: 10px;
+                    color: white;
+                    &::after {
+                        color: inherit;
+                        content: attr(data-symbol);
+                        font-family: FontAwesome;
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                    }
+                    &:hover {
+                        color: #0b5ed7;
+                        transition: all 0.5s;
+                    }
+                }
+                h3{
+                    color: white;
+                    font-size: 20px;
+                }
+            }
+        }
+       }
     }
 }
 

@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   fixedBoxOffsetTopOtherMethod: number = 0;
   @ViewChild('fixedBox') fixedBox!: ElementRef;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private elem:ElementRef) {
   }
 
   ngOnInit(): void {
@@ -61,10 +61,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     }
   }
-  checkChange() {
+  checkChange():void {
     this.loginSubscription = this.authService.$checkLogin.subscribe(() => {
       this.checkLogin()
     })
+  }
+  openModal(status:boolean):void{
+    console.log(status);
+    const modal = this.elem.nativeElement.querySelector('.modal-basket');
+    if(status){
+      modal.style.display = 'block';
+    } else{
+      modal.style.display = 'none';
+    }
   }
 
   ngOnDestroy(): void {
