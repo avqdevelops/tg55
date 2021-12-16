@@ -5,10 +5,9 @@
           <div class="catalog">
                <div class="filter">
                     <h2 class="mx-4 mt-4 text-white">Сортувати</h2>
-              
                     <select class="mx-4 myselect ">   
                          <option selected value="name">За назвою</option>
-                         <option selected value="name">Найновіші</option>
+                         <option value="name">Найновіші</option>
                          <option value="audi">Найдешевші</option>
                          <option value="bmw">Найдорожчі</option>
                      </select>
@@ -38,10 +37,10 @@
                           <option value="Щітки склоочисника">Щітки склоочисника</option>
                       </select>
                      <h4 class="mx-4 mt-4 text-white">Ціна</h4>
-                     <input class="mx-4" type="range" max="10000" [(ngModel)]="rangeValue"> 
-                     <span class="text-white rangenum">від {{rangeValue}} грн</span>
-                     <input class="mx-4" type="range" max="10000" [(ngModel)]="rangeValue2"> 
-                     <span class="text-white rangenum">до {{rangeValue2}} грн</span>
+                     <input class="mx-4 myrange" type="range" max="50000" [(ngModel)]="rangeValue"> 
+                     <span class="text-white mx-4 rangenum">від {{rangeValue}} грн</span>
+                     <input class="mx-4 myrange" type="range" max="50000" [(ngModel)]="rangeValue2"> 
+                     <span class="text-white mx-4 rangenum">до {{rangeValue2}} грн</span>
 
                      <button type="button" class="btn btn-danger usebtn mt-4">Застосувати</button>
                </div>
