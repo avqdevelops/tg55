@@ -7,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  public rangeValue = '0'
+  public rangeValue = 0
+  public rangeValue2 = 0
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  ngDoCheck(): void {
+    this.range()
+  }
+  range(): void {
+    if (this.rangeValue >= this.rangeValue2) {
+      this.rangeValue2 = this.rangeValue + 1
+    }
+  }
 }
