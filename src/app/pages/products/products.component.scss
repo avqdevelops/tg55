@@ -42,11 +42,14 @@
      border-right: none;
      border-top: none;
 }
+
 .sort{
      margin-left: 7%;
 }
 .filter{
      width: 23%;
+     height: 100%;
+     padding-bottom: 2%;
      box-shadow: 5px 5px 20px 5px rgb(53, 53, 53);
 
 }
@@ -60,7 +63,7 @@
 }
 .blockProd{
      width: 23%;
-     height: 380px;
+     height: 440px;
      margin-left: 2%;
      margin-top: 2%;
      background-color: rgba(19, 19, 19, 0.855);
@@ -89,8 +92,18 @@
      padding-bottom: 15px;
 }
 
+::ng-deep {
+     .myrange {
+          .ngx-slider {
+               .ngx-slider-bubble, .ngx-slider-floor, .ngx-slider-ceil{
+                    color: white !important;
+               }
+          }
+     }
+}
+
 .myrange{
-     width: 80%;
+     width: 80%;  
 }
 
 .myselect{

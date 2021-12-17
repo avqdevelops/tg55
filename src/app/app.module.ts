@@ -19,6 +19,8 @@ import { HeaderCategoryComponent } from './admin/header-category/header-category
 import { CatalogCategoryComponent } from './admin/catalog-category/catalog-category.component';
 import { CategoryComponentCatalog } from './admin/catalog-category/category/category.component';
 import { SubCategoryComponentCatalog } from './admin/catalog-category/sub-category/sub-category.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { SubCategoryComponentCatalog } from './admin/catalog-category/sub-catego
     HeaderCategoryComponent,
     CatalogCategoryComponent,
     CategoryComponentCatalog,
-    SubCategoryComponentCatalog
+    SubCategoryComponentCatalog,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxSliderModule,
     HttpClientModule
   ],
   providers: [],

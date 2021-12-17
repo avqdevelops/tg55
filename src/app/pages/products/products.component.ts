@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-products',
@@ -9,6 +10,12 @@ export class ProductsComponent implements OnInit {
 
   public rangeValue = 0
   public rangeValue2 = 0
+  value: number = 0;
+  maxvalue: number = 10000;
+  options: Options = {
+    floor: 0,
+    ceil: 50000
+  };
   constructor() { }
 
   ngOnInit(): void {

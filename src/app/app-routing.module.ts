@@ -14,11 +14,13 @@ import { SubCategoryComponentHeader } from './admin/header-category/sub-category
 import {CatalogCategoryComponent } from "./admin/catalog-category/catalog-category.component";
 import { CategoryComponentCatalog } from './admin/catalog-category/category/category.component';
 import { SubCategoryComponentCatalog } from './admin/catalog-category/sub-category/sub-category.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'login', component:LoginComponent},
   {path: 'products/:category', component: ProductsComponent },
+  {path:  'orders', component: OrdersComponent },
   {path: 'admin', component:AdminComponent , canActivate: [AdminLoginGuard],children:[
     { path: '', pathMatch: 'full', redirectTo: 'category-header' },
     { path: 'category-header', component: HeaderCategoryComponent , children: [
