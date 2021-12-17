@@ -5,7 +5,7 @@
           <div class="catalog">
                <div class="filter">
                     <h2 class="mx-4 mt-4 text-white">Сортувати</h2>
-                    <select class="mx-4 myselect ">   
+                    <select class="mx-4 myselect ">
                          <option selected value="name">За назвою</option>
                          <option value="name">Найновіші</option>
                          <option value="audi">Найдешевші</option>
@@ -13,7 +13,7 @@
                      </select>
                    <h2 class="mx-4 mt-2 text-white">Фільтрація</h2>
                    <h4 class="mx-4 mt-4 text-white">Марка авто</h4>
-                   <select class="mx-4 myselect">   
+                   <select class="mx-4 myselect">
                         <option selected value="all">Усі</option>
                         <option value="audi">audi</option>
                         <option value="bmw">bmw</option>
@@ -21,7 +21,7 @@
                         <option value="mercedes">mercedes</option>
                     </select>
                     <h4 class="mx-4 mt-4 text-white">Категорія</h4>
-                    <select class="mx-4 myselect">   
+                    <select class="mx-4 myselect">
                          <option selected value="all">Усі</option>
                          <option value="Шини">Шини</option>
                          <option value="Аксесуари">Аксесуари</option>
@@ -29,7 +29,7 @@
                          <option value="Teх Рідини">Teх Рідини</option>
                      </select>
                      <h4 class="mx-4 mt-4 text-white">Підкатегорії</h4>
-                     <select class="mx-4 myselect">   
+                     <select class="mx-4 myselect">
                           <option selected value="all">Усі</option>
                           <option value="Акумулятори">Акумулятори</option>
                           <option value="Лампочки">Лампочки</option>
@@ -37,53 +37,55 @@
                           <option value="Щітки склоочисника">Щітки склоочисника</option>
                       </select>
                      <h4 class="mx-4 mt-4 text-white">Ціна</h4>
-                     <input class="mx-4 myrange" type="range" max="50000" [(ngModel)]="rangeValue"> 
+                     <input class="mx-4 myrange" type="range" max="50000" [(ngModel)]="rangeValue">
                      <span class="text-white mx-4 rangenum">від {{rangeValue}} грн</span>
-                     <input class="mx-4 myrange" type="range" max="50000" [(ngModel)]="rangeValue2"> 
+                     <input class="mx-4 myrange" type="range" max="50000" [(ngModel)]="rangeValue2">
                      <span class="text-white mx-4 rangenum">до {{rangeValue2}} грн</span>
 
-                     <button type="button" class="btn btn-danger usebtn mt-4">Застосувати</button>
+                     <button type="button" class="btn btn-danger usebtn mt-4 mx-4">Застосувати</button>
                </div>
                <div class="catalogProd">
                     <div class="blockProd">
-                         <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
+                         <img class="mx-auto" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg" width="98%">
                          <a class="mt-4 price">Products</a>
                          <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
-                         <button type="button" class="btn btn-success mt-2">В корзину</button>
+                         <button type="button" class="btn btn-success mt-2 mx-auto" style="width: 95%">В корзину</button>
                     </div>
-                    <div class="blockProd">
-                         <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                         <a class="mt-4 price">Products</a>
-                         <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
-                         <button type="button" class="btn btn-success mt-2">В корзину</button>
-                    </div>
-                    <div class="blockProd">
-                         <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                         <a class="mt-4 price">Products</a>
-                         <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
-                         <button type="button" class="btn btn-success mt-2">В корзину</button>
-                    </div>               
-                    <div class="blockProd">
-                         <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                         <a class="mt-4 price">Products</a>
-                         <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
-                         <button type="button" class="btn btn-success mt-2">В корзину</button>
-                    </div>
-                    <div class="blockProd">
-                         <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                         <a class="mt-4 price">Products</a>
-                         <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
-                         <button type="button" class="btn btn-success mt-2">В корзину</button>
-                    </div>
-                    <div class="blockProd">
-                         <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                         <a class="mt-4 price">Products</a>
-                         <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
-                         <button type="button" class="btn btn-success mt-2">В корзину</button>
-                    </div>
+                 <div class="blockProd">
+                   <img class="mx-auto" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg" width="98%">
+                   <a class="mt-4 price">Products</a>
+                   <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
+                   <button type="button" class="btn btn-success mt-2 mx-auto" style="width: 95%">В корзину</button>
+                 </div>
+                 <div class="blockProd">
+                   <img class="mx-auto" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg" width="98%">
+                   <a class="mt-4 price">Products</a>
+                   <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
+                   <button type="button" class="btn btn-success mt-2 mx-auto" style="width: 95%">В корзину</button>
+                 </div>
+                 <div class="blockProd">
+                   <img class="mx-auto" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg" width="98%">
+                   <a class="mt-4 price">Products</a>
+                   <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
+                   <button type="button" class="btn btn-success mt-2 mx-auto" style="width: 95%">В корзину</button>
+                 </div>
+                 <div class="blockProd">
+                   <img class="mx-auto" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg" width="98%">
+                   <a class="mt-4 price">Products</a>
+                   <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
+                   <button type="button" class="btn btn-success mt-2 mx-auto" style="width: 95%">В корзину</button>
+                 </div>
+                 <div class="blockProd">
+                 <img class="mx-auto" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg" width="98%">
+                 <a class="mt-4 price">Products</a>
+                 <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
+                 <button type="button" class="btn btn-success mt-2 mx-auto" style="width: 95%">В корзину</button>
                </div>
-              
-               
+
+
+               </div>
+
+
                <div class="pagination">
                     <a class="page">◁</a>
                     <a class="page">1</a>

@@ -15,7 +15,7 @@
      width: 100%;
      background-image: url("../../../assets/images/151021-SKODA-Superb-Black-Crystal-4.jpg");
      position: fixed;
-     
+
 }
 .catalogBg{
      position: relative;
@@ -46,28 +46,28 @@
      margin-left: 7%;
 }
 .filter{
-     width: 42vw;
+     width: 88vw;
      box-shadow: 5px 5px 20px 5px rgb(53, 53, 53);
-     
+
 }
 .usebtn{
-     width: 100%;
+     width: 80%;
 }
 .catalogProd{
      display: flex;
      flex-flow: row wrap;
 }
 .blockProd{
-     width: 16%;
-     height: 450px;
-     margin-left: 8%;
+     width: 22.5%;
+     height: 380px;
+     margin-left: 2%;
      margin-top: 2%;
      background-color: rgba(19, 19, 19, 0.855);
      box-shadow: 0 0 10px 0 black;
      display: flex;
      justify-content: center;
      flex-direction: column;
-  
+
 }
 .price, .page{
      background-color: none;
