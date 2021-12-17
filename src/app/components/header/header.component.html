@@ -11,10 +11,10 @@
             <a [routerLink]="[ '/login']">Увійти</a>
          </div>
          <div class="login" *ngIf="adminLogin">
-            <a [routerLink]="[ 'admin']">Адмін</a>
+            <a [routerLink]="[ '/admin']">Адмін</a>
          </div>
          <div class="login" *ngIf="userLogin">
-            <a [routerLink]="[ 'admin']">Профайл</a>
+            <a [routerLink]="[ '/admin']">Профайл</a>
          </div>
       </div>
    </div>
@@ -27,7 +27,7 @@
       <nav>
          <ul class="nav-wrapper">
             <li class="nav-link">
-               <a class="nav-link-item">Аксесуари</a>
+               <a  [routerLink]="[ '/products/фві' ]" class="nav-link-item">Аксесуари</a>
                <ul class="nav-link-dropdown">
                   <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Щітки склоочисника</li>
                   <li [routerLink]="[ '/products/фві' ]">  <img src="assets/images/angle-double-right.svg"> Акумулятори</li>
@@ -37,18 +37,18 @@
             </li>
 
             <li class="nav-link">
-               <a class="nav-link-item">Масла</a>
+               <a  [routerLink]="[ '/products/фві' ]" class="nav-link-item">Масла</a>
                <ul class="nav-link-dropdown">
-                  <li> <img src="assets/images/angle-double-right.svg"> Трансмісійні</li>
-                  <li> <img src="assets/images/angle-double-right.svg"> Моторні</li>
+                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Трансмісійні</li>
+                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Моторні</li>
                </ul>
             </li>
             <li class="nav-link">
-               <a class="nav-link-item">Teх Рідини</a>
+               <a class="nav-link-item"  [routerLink]="[ '/products/фві' ]">Teх Рідини</a>
                <ul class="nav-link-dropdown">
-                  <li> <img src="assets/images/angle-double-right.svg"> Антифриз</li>
-                  <li> <img src="assets/images/angle-double-right.svg"> Тормозна Рідина</li>
-                  <li> <img src="assets/images/angle-double-right.svg"> Рідина гідропідсилювача</li>
+                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Антифриз</li>
+                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Тормозна Рідина</li>
+                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Рідина гідропідсилювача</li>
                </ul>
             </li>
             <li class="nav-link">
