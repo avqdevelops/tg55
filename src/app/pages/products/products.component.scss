@@ -46,7 +46,7 @@
      margin-left: 7%;
 }
 .filter{
-     width: 88vw;
+     width: 25%;
      box-shadow: 5px 5px 20px 5px rgb(53, 53, 53);
 
 }
@@ -54,12 +54,13 @@
      width: 80%;
 }
 .catalogProd{
+  width: 75%;
      display: flex;
      flex-flow: row wrap;
 }
 .blockProd{
      width: 22.5%;
-     height: 380px;
+     height: 445px;
      margin-left: 2%;
      margin-top: 2%;
      background-color: rgba(19, 19, 19, 0.855);
