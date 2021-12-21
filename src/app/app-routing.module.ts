@@ -5,7 +5,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
-import {LoginComponent} from "./pages/login/login.component";
+import { LoginComponent } from "./pages/login/login.component";
 import { AdminLoginGuard } from './shared/guard/adminLogin/admin-login.guard';
 import { ProductsComponent } from './pages/products/products.component';
 import { HeaderCategoryComponent } from './admin/header-category/header-category.component';

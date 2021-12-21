@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/service/auth/auth.service';
+import { CategoryService } from 'src/app/shared/service/category/category.service';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public headerElse = {
     'header-else': false,
   }
+  public categoryHead!: any
   public loginSubscription!: Subscription;
   public aboutPage: any;
   public adminLogin = false;
@@ -21,13 +23,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
   fixedBoxOffsetTopOtherMethod: number = 0;
   @ViewChild('fixedBox') fixedBox!: ElementRef;
 
-  constructor(private authService: AuthService, private elem:ElementRef) {
+  constructor(
+    private authService: AuthService,
+    private elem:ElementRef,
+    private categoryServices: CategoryService
+    ) {
   }
 
   ngOnInit(): void {
     this.checkLogin();
-    this.checkChange()
+    this.checkChange();
+    this.loadCategory();
   }
+
   @HostListener("window:scroll", [])
   onWindowScroll() {
     const rect = this.fixedBox.nativeElement.getBoundingClientRect();
@@ -43,6 +51,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
       }
     }
+  }
+
+  loadCategory():void{
+    this.categoryServices.loadHeaderCategory().subscribe(e=>{
+      this.categoryHead = e
+      console.log(this.categoryHead);
+    }, err=>{
+      console.log(`load category error`, err);
+    })
   }
 
   checkLogin() {
@@ -61,11 +78,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     }
   }
+
   checkChange():void {
     this.loginSubscription = this.authService.$checkLogin.subscribe(() => {
       this.checkLogin()
     })
   }
+
   openModal(status:boolean):void{
     console.log(status);
     const modal = this.elem.nativeElement.querySelector('.modal-basket');
