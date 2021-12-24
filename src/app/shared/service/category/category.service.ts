@@ -11,7 +11,8 @@ export class CategoryService {
   private api = {
      createCategory: `${this.url}/api/category/post-category`,
      getCategory: `${this.url}/api/category/get-category`,
-     headerCategory: `${this.url}/api/headerCategory`
+     headerCategory: `${this.url}/api/headerCategory`,
+     headerSubCategory: `${this.url}/api/headerSubCategory`
     }
   constructor(private http: HttpClient) { }
 
@@ -38,4 +39,23 @@ export class CategoryService {
   deleteHeaderCategory(id: any): Observable<void> {
     return this.http.delete<void>(`${this.api.headerCategory}/${id}`);
   }
+
+
+  // headerSubCategory
+  loadHeaderSubCategory(): Observable<any>{
+    return this.http.get(this.api.headerSubCategory)
+  }
+  
+  createHeaderSubCategory(subCategory: any): Observable<any> {
+    return this.http.post(this.api.headerSubCategory, subCategory)
+  }
+
+  updateHeaderSubCategory(subCategory: any, id: any): Observable<void> {
+    return this.http.put<void>(this.api.headerSubCategory, subCategory);
+  }
+
+  deleteHeaderSubCategory(id: any): Observable<void> {
+    return this.http.delete<void>(`${this.api.headerSubCategory}/${id}`);
+  }
+  
 }

@@ -1,74 +1,69 @@
 <h1 class="mt-4">Підкатегорії шапки</h1>
 
 <div class="container">
-    <div class="row">
-        <div class="input-group flex-nowrap mt-4 mb-4">
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Створити</button>
-            <input type="text" class="form-control" placeholder="Пошук" aria-label="Пошук"
-                aria-describedby="addon-wrapping">
-        </div>
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Назва</th>
-                <th scope="col">Опис</th>
-                <th scope="col">Зображення</th>
-                <th scope="col">Дії</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Thornton</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+  <div class="row">
+    <div class="input-group flex-nowrap mt-4 mb-4">
+      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="resetForm()">Створити</button>
+      <input type="text" class="form-control" placeholder="Пошук" aria-label="Пошук" aria-describedby="addon-wrapping">
     </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Назва</th>
+          <th scope="col">Опис</th>
+          <th scope="col">Категорії</th>
+          <th scope="col">Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of subCategoryHead; let i =index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{item?.name}}</td>
+          <td>{{item?.path}}</td>
+          <td>{{item?.category.name}}</td>
+          <td>
+            <button class="mx-2 btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="editCategory(item)">edit</button>
+            <button class="btn btn-danger" (click)="deleteCategory(item)">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="subCategoryForm">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Назва</label>
+            <input type="text" class="form-control" formControlName="name" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Шлях</label>
+            <input type="text" class="form-control"  formControlName="path" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="categ" class="col-form-label">Recipient:</label>
+            <select name="category" class="form-select"  formControlName="category" id="categ">
+              <option *ngFor="let item of categoryHead" [ngValue]="item" >{{item.name}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveCategory()">Save</button>
+      </div>
     </div>
+  </div>
 </div>
