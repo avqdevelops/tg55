@@ -11,7 +11,6 @@ export class CategoryComponentHeader implements OnInit {
   public categoryHead!: any
   public editStatus = false;
   public categoryForm!: FormGroup;
-  public currentCategoryID!: any
   constructor(
     private categoryServices: CategoryService,
     private fb: FormBuilder,
@@ -27,7 +26,7 @@ export class CategoryComponentHeader implements OnInit {
     this.categoryForm = this.fb.group({
       name: [null, Validators.required],
       path: [null, Validators.required],
-      // imagePath: [null, Validators.required]
+      id: [null]
     })
   }
 
@@ -46,7 +45,7 @@ export class CategoryComponentHeader implements OnInit {
 
   saveCategory(): void {
     if (this.editStatus) {
-      this.categoryServices.updateHeaderCategory(this.categoryForm.value, this.currentCategoryID).subscribe(() => {
+      this.categoryServices.updateHeaderCategory(this.categoryForm.value).subscribe(() => {
         this.loadCategory();
         this.editStatus = false;
         this.initCategoryForm();
@@ -64,7 +63,8 @@ export class CategoryComponentHeader implements OnInit {
   }
 
   deleteCategory(category: any): void {
-    this.categoryServices.deleteHeaderCategory(category).subscribe(() => {
+   let id = category._id
+    this.categoryServices.deleteHeaderCategory(id).subscribe(() => {
       this.loadCategory();
     }, err => {
       console.log('delete category error', err);
@@ -75,9 +75,8 @@ export class CategoryComponentHeader implements OnInit {
     this.categoryForm.patchValue({
       name: category.name,
       path: category.path,
-      imagePath: category.imagePath
+      id:category._id
     });
-    this.currentCategoryID = category.id;
     this.editStatus = true;
   }
 

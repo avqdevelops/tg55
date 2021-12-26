@@ -32,7 +32,7 @@ export class CategoryService {
     return this.http.post(this.api.headerCategory, category)
   }
 
-  updateHeaderCategory(category: any, id: any): Observable<void> {
+  updateHeaderCategory(category: any): Observable<void> {
     return this.http.put<void>(this.api.headerCategory, category);
   }
 
