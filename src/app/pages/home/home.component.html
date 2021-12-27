@@ -27,7 +27,29 @@
       <a class="mt-4 text-center">Products</a>
       <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
       <div class="text-center">
-        <button type="button" class="btn btn-success mt-2" style="width: 80%;">В корзину</button>
+        <button type="button" class="btn btn-success mt-2" style="width: 95%;">В корзину</button>
+      </div>
+    </div>
+  </div>
+  </ngx-slick-carousel>
+  </div>
+  <h1 class="mt-4">Рекомендовані</h1>
+  <hr>
+  <div class="row">
+    <ngx-slick-carousel class="carousel" 
+    #slickModal="slick-carousel" 
+    [config]="slideConfig" 
+    (init)="slickInit($event)"
+    (breakpoint)="breakpoint($event)"
+    (afterChange)="afterChange($event)"
+    (beforeChange)="beforeChange($event)">
+  <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+    <div class="product me-5 mt-4">
+      <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
+      <a class="mt-4 text-center">Products</a>
+      <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
+      <div class="text-center">
+        <button type="button" class="btn btn-success mt-2" style="width: 95%;">В корзину</button>
       </div>
     </div>
   </div>
