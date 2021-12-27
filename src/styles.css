@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@font-face {
+  font-family: montserrat-bold;
+  src: url(./assets/fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: montserrat-regular;
+  src: url(./assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+body {
+  background-color: #555555;
+}
+/*# sourceMappingURL=styles.css.map */

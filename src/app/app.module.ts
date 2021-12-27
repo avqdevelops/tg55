@@ -24,6 +24,7 @@ import { SubCategoryComponentCatalog } from './admin/catalog-category/sub-catego
 import { SubCategoryComponentHeader } from './admin/header-category/sub-category/sub-category.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { OrdersComponent } from './pages/orders/orders.component';
     ReactiveFormsModule,
     FormsModule,
     NgxSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

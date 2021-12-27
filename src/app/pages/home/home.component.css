@@ -1,0 +1,208 @@
+.car-image-contaiter {
+  background-image: url("../../../assets/images/151021-SKODA-Superb-Black-Crystal-4.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: repeat-y, repeat-y;
+  background-position: top, bottom;
+  background-attachment: fixed, fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.image-title-wrapper {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  border-left: 300px solid transparent;
+  border-bottom: 700px solid rgba(44, 44, 44, 0.452);
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.image-title-wrapper .image-title {
+  position: absolute;
+  top: 200px;
+}
+
+.image-title-wrapper .image-title span {
+  font-size: 80px;
+  display: block;
+  color: white;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}
+
+.container {
+  width: 95%;
+}
+
+.container h1 {
+  color: white;
+  font-size: 28px;
+}
+
+.container hr {
+  background-color: white;
+  height: 2px;
+}
+
+.container .carousel {
+  width: 100%;
+}
+
+.container .carousel .product {
+  margin: 0 0 0 20px;
+  width: 270px;
+  height: 400px;
+  background-color: rgba(19, 19, 19, 0.855);
+  -webkit-box-shadow: 0 0 10px 0 black;
+          box-shadow: 0 0 10px 0 black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .carousel .product img {
+  height: 60%;
+  width: 100%;
+}
+
+.container .carousel .product a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.container .carousel .product a:hover {
+  color: #0b5ed7;
+}
+
+.container .carousel .product p {
+  text-align: center;
+  color: white;
+}
+
+.container form {
+  height: 560px;
+  background-image: url("https://cdn.skoda-storyboard.com/2017/03/Oc_0029.jpg");
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0 0 10px 0 black;
+          box-shadow: 0 0 10px 0 black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container form .mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.634);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container form .mask h5 {
+  margin: 20px 0 0 0;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+
+.container form .mask .form-wrapper {
+  width: 50%;
+  color: white;
+  padding: 0 30px;
+}
+
+.container form .mask .form-wrapper p {
+  font-size: 18px;
+}
+
+.container form .mask .form-wrapper textarea, .container form .mask .form-wrapper input {
+  color: white;
+  width: 80%;
+  background-color: rgba(87, 87, 87, 0.558);
+  resize: none;
+}
+
+.brand {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.brand .brand-item {
+  margin: 0 3px 3px 0px;
+  background-color: rgba(27, 27, 27, 0.758);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: calc(100% / 5.1);
+  height: 150px;
+}
+
+.brand .brand-item img {
+  width: 90%;
+  height: 90%;
+}
+
+.map {
+  height: 500px;
+}
+
+::ng-deep .carousel .slick-arrow {
+  background-color: transparent;
+}
+
+::ng-deep .carousel .slick-arrow:hover {
+  color: black;
+}
+/*# sourceMappingURL=home.component.css.map */

@@ -31,7 +31,6 @@ a {
   height: 100%;
   left: 0;
   top: 0;
-  background-color: rgb(41, 41, 41);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +52,7 @@ a {
       top: 0;
       transition: 1.5s;
       backface-visibility: hidden;
-      background-color: rgba(19, 19, 31, 0.641);
+      background-color: rgb(41, 41, 41);
       box-shadow: 0 0 10px 0 #000000;
       border-radius: 10px;
 
