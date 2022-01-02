@@ -273,17 +273,17 @@ header .header-container .basket-item a .basket ::before {
   margin: 0 5px 0 0;
 }
 
-header .header-container .basket-item .modal-basket {
+.modal-basket {
   display: none;
-  width: 300px;
-  height: 100px;
-  background-color: #0e0e0e;
-  position: absolute;
-  right: 30px;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(53, 53, 53, 0.503);
+  position: fixed;
+  z-index: 500;
 }
 
-header .header-container .basket-item .modal-basket .content {
-  position: relative;
+.modal-basket .content-wrapper {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -297,20 +297,56 @@ header .header-container .basket-item .modal-basket .content {
           justify-content: center;
 }
 
-header .header-container .basket-item .modal-basket .content span {
+.modal-basket .content-wrapper .content {
+  width: 55%;
+  height: 95%;
+  background-color: #555555;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-basket .content-wrapper .content .mask {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-basket .content-wrapper .content .mask .header-modal {
+  margin: 0 20px;
+  height: 80px;
+  border-bottom: 1px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.modal-basket .content-wrapper .content .mask .header-modal h6 {
+  color: white;
+  font-size: 25px;
+  margin: 0 0 0 10px;
+}
+
+.modal-basket .content-wrapper .content .mask .header-modal span {
   position: absolute;
   width: 15px;
   height: 15px;
-  top: 5px;
-  right: 10px;
-  color: white;
+  top: 30%;
+  right: 2%;
+  color: red;
 }
 
-header .header-container .basket-item .modal-basket .content span::after {
+.modal-basket .content-wrapper .content .mask .header-modal span::after {
   color: inherit;
-  content: attr(data-symbol);
+  content: "\f00d";
   font-family: FontAwesome;
-  font-size: 14px;
+  font-size: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -322,15 +358,223 @@ header .header-container .basket-item .modal-basket .content span::after {
           justify-content: flex-end;
 }
 
-header .header-container .basket-item .modal-basket .content span:hover {
+.modal-basket .content-wrapper .content .mask .header-modal span:hover {
   color: #0b5ed7;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
-header .header-container .basket-item .modal-basket .content h3 {
+.modal-basket .content-wrapper .content .mask .table-wrapper {
+  height: 400px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper tbody {
   color: white;
+  display: block;
+  overflow: auto;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper thead,
+.modal-basket .content-wrapper .content .mask .table-wrapper tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  color: white;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper thead {
+  font-size: 24px;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table thead,
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody {
+  width: 100%;
+  display: block;
+  height: 400px;
+  overflow: auto;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products {
+  height: 130px;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .remove-wrap {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .remove-wrap .remove {
+  color: red;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .remove-wrap .remove::after {
+  color: inherit;
+  content: "\f00d";
+  font-family: FontAwesome;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .remove-wrap .remove:hover {
+  color: #0b5ed7;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .product-wrap .image {
+  width: 40%;
+  height: 40%;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .product-wrap .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .product-wrap .text {
+  margin: 10px 0 0 0;
+  text-align: right;
   font-size: 20px;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter {
+  width: 75px;
+  height: 40px;
+  background-color: rgba(253, 253, 253, 0.896);
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  position: relative;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter .arrow-wrap {
+  height: 100%;
+  width: 35%;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter .arrow-wrap .arrow-up {
+  height: 50%;
+  display: block;
+  position: relative;
+  color: black;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter .arrow-wrap .arrow-up::after {
+  position: absolute;
+  top: 5%;
+  color: inherit;
+  content: "\f077";
+  font-family: FontAwesome;
+  font-size: 12px;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter .arrow-wrap .arrow-up:hover {
+  color: #0b5ed7;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter .arrow-wrap .arrow-down {
+  height: 50%;
+  position: relative;
+  display: block;
+  color: black;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter .arrow-wrap .arrow-down::after {
+  position: absolute;
+  top: 0;
+  color: inherit;
+  content: "\f078";
+  font-family: FontAwesome;
+  font-size: 12px;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter .arrow-wrap .arrow-down:hover {
+  color: #0b5ed7;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .counter-wrapper .counter .count {
+  color: black;
+  width: 30%;
+  position: absolute;
+  top: 8%;
+  font-size: 22px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.modal-basket .content-wrapper .content .mask .total {
+  padding: 20px 80px 0 0;
+  font-size: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+}
+
+.modal-basket .content-wrapper .content .mask .total span {
+  color: #0b5ed7;
+}
+
+.modal-basket .content-wrapper .content .mask .button-wrapper {
+  margin: 30px auto;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal-basket .content-wrapper .content .mask .button-wrapper button {
+  font-size: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .header-else {

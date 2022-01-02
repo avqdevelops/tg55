@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EACJ,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,KAAK;CAc1B;;AAjBD,AAII,OAJG,CAIH,IAAI,CAAC;EACD,MAAM,EAAE,IAAI;CACf;;AANL,AAOQ,OAPD,CAOC,cAAc,CAAC;EACZ,OAAO,EAAE,IAAI;CACf;;AATT,AAYI,OAZG,CAYH,YAAY,CAAC;EACT,MAAM,EAAE,YAAY;EACpB,QAAQ,EAAE,MAAM;EAChB,UAAU,EAAE,MAAM;CACrB",
+    "sources": [
+        "catalog-cars.component.scss"
+    ],
+    "names": [],
+    "file": "catalog-cars.component.css"
+}

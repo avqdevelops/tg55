@@ -1,0 +1,18 @@
+section {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    .btn {
+        margin: 20px;
+    }
+        .tableSubModel {
+           display: none;
+        }
+        
+
+    .tableEngine {
+        height: 0 !important;
+        overflow: hidden;
+        transition: all 1s;
+    }
+}

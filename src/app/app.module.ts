@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CategoryComponentHeader } from './admin/header-category/category/category.component';
@@ -11,7 +11,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { AdminModelComponent } from './admin/admin-model/admin-model.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -25,6 +24,15 @@ import { SubCategoryComponentHeader } from './admin/header-category/sub-category
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CatalogCarsComponent } from './catalog-cars/catalog-cars.component';
+import { ModelComponent } from './catalog-cars/model/model.component';
+import { ModelDetailComponent } from './catalog-cars/model-detail/model-detail.component';
+import { FilterCityPipe } from './shared/pipes/filterCity/filter-city.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -33,7 +41,6 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     AdminComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    AdminModelComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
@@ -46,6 +53,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     CategoryComponentCatalog,
     SubCategoryComponentCatalog,
     OrdersComponent,
+    CatalogCarsComponent,
+    ModelComponent,
+    ModelDetailComponent,
+    FilterCityPipe,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +65,11 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     FormsModule,
     NgxSliderModule,
     HttpClientModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    NgxMatSelectSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

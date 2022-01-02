@@ -1,43 +1,33 @@
-.bgimg{
+section{
+     width: 100vw;
+     height: 100vh;
      background-size: cover;
-     background-repeat: repeat-y, repeat-y;
-     background-position: top, bottom;
-     background-attachment: fixed, fixed;
-     height: 100%;
-     width: 100%;
-     background-image: url("../../../assets/images/151021-SKODA-Superb-Black-Crystal-4.jpg");
-     position: fixed;
-
-}
-
-.title{
-     color: white;
-     position: relative;
-     top: 20vh;
-     left: 7%;
-     font-size: 50px;
-     width: 40%;
+     background-position: top;
+     background-image: url(../../../assets/images/151021-SKODA-Superb-Black-Crystal-4.jpg);
+     .mask{
+          background-color: rgba(46, 46, 46, 0.558);
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+     }
 }
 
 .orderParent{
-     position: relative;
-     top: 21vh;
-     height: 65vh;
-     display: flex;
-     flex-direction: row;
-     justify-content: space-evenly;
-}
-
-.orderProducts{
-     box-shadow: 0 0 10px 0 rgb(85, 85, 85);
+     position: absolute;
+     height: 95%;
+     width: 80%;
+     left: auto;
      background-color: rgb(85, 85, 85);
-     width: 40%;
+     z-index: 505;
 }
 
 .orderForm{
-     box-shadow: 0 0 10px 0 rgb(85, 85, 85);
+     height: 100%;
      background-color: rgb(85, 85, 85);
-     width: 40%;
+     box-shadow: 0 0 10px 0 black;
+     width: 50%;
 }
 
 .myrow{
@@ -46,15 +36,16 @@
 }
 
 .mycolumn{
+     padding: 30px;
      display: flex;
      flex-direction: column;
 }
 
-.cntr{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-}
+// .cntr{
+//      display: flex;
+//      justify-content: center;
+//      align-items: center;
+// }
 
 .between{
      justify-content: space-between;
@@ -63,6 +54,7 @@
 .txWhite{
      color: white;
      margin-bottom: 0.5rem;
+     font-size: 16px;
 }
 
 .basket{
@@ -110,11 +102,18 @@
 }
 
 .ordinp{
+     height: 40px;
      width: 85%;
+     font-size: 20px;
      background-color: rgb(85, 85, 85);
      border: none;
-     border-bottom: 1px solid white;
+     outline: none;
+     border-bottom: 2px solid white;
      color: white;
+     &:focus{
+          transition: all 0.5s;
+          border-bottom: 2px solid blue;
+     }
 }
 
 .doOrder{
@@ -130,4 +129,27 @@
  }
 ::-webkit-scrollbar-track {
      background: #0e0f10;
+ }
+
+ ::ng-deep{
+     .mat-form-field-infix{
+          width: 60%;
+          margin: 20px 0 0 0;
+          height: 50px;
+          font-size: 20px;
+          color: white;
+          // border-bottom: 2px solid royalblue;
+     }
+     .mat-select-value{
+          color: white;
+     }
+     .mat-form-field-label{
+          color: white !important;
+          &::placeholder{
+               color: inherit;
+          }
+     }
+     .mat-form-field{
+          width: 60%;
+     }
  }

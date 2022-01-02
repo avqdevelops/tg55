@@ -85,13 +85,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
     })
   }
 
-  openModal(status:boolean):void{
-    console.log(status);
+  openModal(status:boolean,event:any):void{
     const modal = this.elem.nativeElement.querySelector('.modal-basket');
     if(status){
+      document.body.style.overflowY ='hidden'
       modal.style.display = 'block';
     } else{
-      modal.style.display = 'none';
+      const close = event.target.className 
+      close.split(' ').forEach((elem:any) => {
+        if(elem == 'close' ){
+          modal.style.display = 'none';
+          document.body.style.overflowY ='scroll';
+        }
+      });
     }
   }
 

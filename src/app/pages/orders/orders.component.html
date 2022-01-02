@@ -1,91 +1,53 @@
-<app-header></app-header>
-<div class="bgimg"></div>
-<h1 class="title">Оформлення замовлення</h1>
-<div class="orderParent">
-     <div class="orderProducts">
-          <div class="myrow between">
-               <h3 class="txWhite mx-3 mt-2">Моє замовлення</h3>
-               <h3 class="txWhite mx-3 mt-2">0 грн</h3>
-          </div>
-          <div class="mt-4 basket">
-               <div class="bsCard myrow  my-3 mx-auto">
-                    <img class="bsimg" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                    <div class="mycolumn between w100">
-                         <div class="w100 myrow between">
-                              <p class="txWhite mx-3 mt-2">назва</p>
-                              <a class="deleteProdBtn txWhite">╳</a>
-                         </div>
-                         <div class="w100 myrow between">
-                              <p class="txWhite mx-3">Lorem ipsum dolor sit amet</p>
-                              <p class="txWhite mx-3">Ціна</p>
-                         </div>
-                    </div>
-               </div>
-               <div class="bsCard myrow  my-3 mx-auto">
-                    <img class="bsimg" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                    <div class="mycolumn between w100">
-                         <div class="w100 myrow between">
-                              <p class="txWhite mx-3 mt-2">назва</p>
-                              <a class="deleteProdBtn txWhite">╳</a>
-                         </div>
-                         <div class="w100 myrow between">
-                              <p class="txWhite mx-3">Lorem ipsum dolor sit amet</p>
-                              <p class="txWhite mx-3 ">Ціна</p>
-                         </div>
-                    </div>
-               </div>
-               <div class="bsCard myrow  my-3 mx-auto">
-                    <img class="bsimg" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                    <div class="mycolumn between w100">
-                         <div class="w100 myrow between">
-                              <p class="txWhite mx-3 mt-2">назва</p>
-                              <a class="deleteProdBtn txWhite">╳</a>
-                         </div>
-                         <div class="w100 myrow between">
-                              <p class="txWhite mx-3">Lorem ipsum dolor sit amet</p>
-                              <p class="txWhite mx-3">Ціна</p>
-                         </div>
-                    </div>
-               </div>
-                 <div class="bsCard myrow  my-3 mx-auto">
-                    <img class="bsimg" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
-                    <div class="mycolumn between w100">
-                         <div class="w100 myrow between">
-                              <p class="txWhite mx-3 mt-2">назва</p>
-                              <a class="deleteProdBtn txWhite">╳</a>
-                         </div>
-                         <div class="w100 myrow between">
-                              <p class="txWhite mx-3">Lorem ipsum dolor sit amet</p>
-                              <p class="txWhite mx-3 mt-2">Ціна</p>
-                         </div>
+<section>
+     <div class="mask">
+          <div class="orderParent">
+               <div class="orderForm">
+                    <div class="mx-auto mycolumn cntr">
+                         <h2 class="txWhite" style="font-size: 22px;">Оформлення замовлення</h2>
+                         <label class="txWhite inpLbl mt-2" for="lname">Прізвище:</label>
+                         <input class="ordinp" id="lname" type="text">
+                         <label class="txWhite inpLbl mt-2" for="name">Ім'я:</label>
+                         <input class="ordinp" id="name" type="text">
+                         <label class="txWhite inpLbl mt-2" for="email">Email:</label>
+                         <input class="ordinp" id="email" type="text">
+                         <label class="txWhite inpLbl mt-2" for="number">Номер телефону:</label>
+                         <input class="ordinp" id="number" type="text"/> 
+                         <mat-form-field>
+                         <mat-select placeholder="Виберіть область" #singleSelect>
+                              <mat-option>
+                                   <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                              </mat-option>
+                              <mat-option *ngFor="let item of obl | filterCity:value" [value]="item.Description"
+                                   (click)="loadCity(item)">
+                                   {{item.Description}}
+                              </mat-option>
+                         </mat-select>
+                         </mat-form-field>
+                         <mat-form-field>
+                              <mat-select placeholder="Виберіть місто" #singleSelect>
+                                   <mat-option>
+                                        <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                                   </mat-option>
+                                   <mat-option *ngFor="let item of city | filterCity:value" [value]="item.Description"
+                                        (click)="loadItem(item)">
+                                        {{item.Description}}
+                                   </mat-option>
+                              </mat-select>
+                         </mat-form-field>
+                         <mat-form-field>
+                              <mat-select placeholder="Виберіть відділення" #singleSelect>
+                                   <mat-option>
+                                        <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                                   </mat-option>
+                                   <mat-option *ngFor="let item of branch | filterCity:value" [value]="item.Description"
+                                        (click)="saveDelivery(item)">
+                                        {{item.Description}}
+                                   </mat-option>
+                              </mat-select>
+                         </mat-form-field>
+                         <!-- <button class="btn btn-success mt-4 doOrder">Замовити</button> -->
                     </div>
                </div>
           </div>
      </div>
-     <div class="orderForm">
-          <h2 class="txWhite mt-2 text-center ">Заповніть дані доставки!</h2>
-          <div class="mx-auto mycolumn cntr">
-               <label class="txWhite inpLbl mt-2" for="lname">Прізвище</label>
-               <input class="ordinp" id="lname" type="text">
-               <label class="txWhite inpLbl mt-2" for="name">Ім'я</label>
-               <input class="ordinp" id="name" type="text">
-               <label class="txWhite inpLbl mt-2" for="email">email</label>
-               <input class="ordinp" id="email" type="text">
-               <label class="txWhite inpLbl mt-2" for="number">Номер телефону</label>
-               <input class="ordinp" id="number" type="text">
-               <label class="txWhite inpLbl mt-2" for="sity">Виберіть місто доставки</label>
-               <select class="ordinp" name="sity" id="sity">
-                    <option value="Львів">Львів</option>
-                    <option value="Київ">Київ</option>
-                    <option value="Івано-франківськ">Івано-франківськ</option>
-               </select>
-               <label class="txWhite inpLbl mt-2" for="delivery">Відділення нової пошти!</label>
-               <select class="ordinp" name="delivery" id="delivery">
-                    <option value="#1">#1</option>
-                    <option value="#2">#2</option>
-                    <option value="#3">#3</option>
-               </select>
-               <button class="btn btn-success mt-4 doOrder">Замовити</button>
-          </div>
-     </div>
-</div>
+</section>

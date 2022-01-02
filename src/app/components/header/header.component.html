@@ -27,32 +27,38 @@
       <nav>
          <ul class="nav-wrapper">
             <li class="nav-link">
-               <a  [routerLink]="[ '/products/фві' ]" class="nav-link-item">Аксесуари</a>
+               <a [routerLink]="[ '/products/фві' ]" class="nav-link-item">Аксесуари</a>
                <ul class="nav-link-dropdown">
-                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Щітки склоочисника</li>
-                  <li [routerLink]="[ '/products/фві' ]">  <img src="assets/images/angle-double-right.svg"> Акумулятори</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Щітки
+                     склоочисника</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Акумулятори
+                  </li>
                   <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Лампочки</li>
-                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Бризговики</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Бризговики
+                  </li>
                </ul>
             </li>
 
             <li class="nav-link">
-               <a  [routerLink]="[ '/products/фві' ]" class="nav-link-item">Масла</a>
+               <a [routerLink]="[ '/products/фві' ]" class="nav-link-item">Масла</a>
                <ul class="nav-link-dropdown">
-                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Трансмісійні</li>
-                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Моторні</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Трансмісійні
+                  </li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Моторні</li>
                </ul>
             </li>
             <li class="nav-link">
-               <a class="nav-link-item"  [routerLink]="[ '/products/фві' ]">Teх Рідини</a>
+               <a class="nav-link-item" [routerLink]="[ '/products/фві' ]">Teх Рідини</a>
                <ul class="nav-link-dropdown">
-                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Антифриз</li>
-                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Тормозна Рідина</li>
-                  <li  [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Рідина гідропідсилювача</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Антифриз</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Тормозна
+                     Рідина</li>
+                  <li [routerLink]="[ '/products/фві' ]"> <img src="assets/images/angle-double-right.svg"> Рідина
+                     гідропідсилювача</li>
                </ul>
             </li>
             <li class="nav-link">
-               <a class="nav-link-item" [routerLink]="[ '/catalog']">Пошук по Авто</a>
+               <a class="nav-link-item" [routerLink]="['']">Пошук по Авто</a>
             </li>
          </ul>
       </nav>
@@ -63,18 +69,195 @@
          </div>
       </div>
       <div class="basket-item">
-         <a (click)="openModal(true)">
+         <a (click)="openModal(true,$event)">
             <div class="basket">
                <span> 0 грн </span>
             </div>
          </a>
-         <div class="modal-basket">
-            <div class="content">
-               <span data-symbol="&#xf00d;" (click)="openModal(false)"></span>
-               <h3> Ваша корзина пуста </h3>
-               <button class="btn btn-danger orderBtn" [routerLink]="[ '/orders' ]">Замовити</button> 
-            </div>
-         </div>
       </div>
    </div>
 </header>
+
+<!-- Modal basket -->
+<div class="modal-basket" (click)="openModal(false,$event)">
+   <div class="content-wrapper close">
+      <div class="content">
+        <div class="mask">
+         <div class="header-modal">
+            <h6 style="width: 50%;">Кошик</h6>
+            <span data-symbol="&#xf00d;" class="close" (click)="openModal(false,$event)"></span>
+         </div>
+         <div class="table-wrapper" style="margin: 30px;">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th scope="col" style="width: 5%;"></th>
+                     <th scope="col">Запчастина</th>
+                     <th scope="col">Ціна</th>
+                     <th scope="col">Кількість</th>
+                     <th scope="col">Загалом</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr class="item-products">
+                     <td valign="middle" style="width: 5%;">
+                        <div class="remove-wrap">
+                           <span data-symbol="&#xf00d;" class="remove"></span>
+                        </div>
+                     </td>
+                     <td valign="middle">
+                        <div class="product-wrap">
+                           <div class="image">
+                              <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
+                           </div>
+                           <p class="text">
+                              Фільтр Масла OX360 
+                           </p>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                     <td valign="middle">
+                        <div class="counter-wrapper">
+                           <div class="counter">
+                              <div class="arrow-wrap">
+                                 <span class="arrow-up"></span>
+                                 <span class="arrow-down"></span>
+                              </div>
+                              <span class="count">1</span>
+                           </div>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                  </tr>
+                  <tr class="item-products">
+                     <td valign="middle" style="width: 5%;">
+                        <div class="remove-wrap">
+                           <span data-symbol="&#xf00d;" class="remove"></span>
+                        </div>
+                     </td>
+                     <td valign="middle">
+                        <div class="product-wrap">
+                           <div class="image">
+                              <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
+                           </div>
+                           <p class="text">
+                              Фільтр Масла OX360 
+                           </p>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                     <td valign="middle">
+                        <div class="counter-wrapper">
+                           <div class="counter">
+                              <div class="arrow-wrap">
+                                 <span class="arrow-up"></span>
+                                 <span class="arrow-down"></span>
+                              </div>
+                              <span class="count">1</span>
+                           </div>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                  </tr>
+                  <tr class="item-products">
+                     <td valign="middle" style="width: 5%;">
+                        <div class="remove-wrap">
+                           <span data-symbol="&#xf00d;" class="remove"></span>
+                        </div>
+                     </td>
+                     <td valign="middle">
+                        <div class="product-wrap">
+                           <div class="image">
+                              <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
+                           </div>
+                           <p class="text">
+                              Фільтр Масла OX360 
+                           </p>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                     <td valign="middle">
+                        <div class="counter-wrapper">
+                           <div class="counter">
+                              <div class="arrow-wrap">
+                                 <span class="arrow-up"></span>
+                                 <span class="arrow-down"></span>
+                              </div>
+                              <span class="count">1</span>
+                           </div>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                  </tr>
+                  <tr class="item-products">
+                     <td valign="middle" style="width: 5%;">
+                        <div class="remove-wrap">
+                           <span data-symbol="&#xf00d;" class="remove"></span>
+                        </div>
+                     </td>
+                     <td valign="middle">
+                        <div class="product-wrap">
+                           <div class="image">
+                              <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
+                           </div>
+                           <p class="text">
+                              Фільтр Масла OX360 
+                           </p>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                     <td valign="middle">
+                        <div class="counter-wrapper">
+                           <div class="counter">
+                              <div class="arrow-wrap">
+                                 <span class="arrow-up"></span>
+                                 <span class="arrow-down"></span>
+                              </div>
+                              <span class="count">1</span>
+                           </div>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                  </tr>
+                  <tr class="item-products">
+                     <td valign="middle" style="width: 5%;">
+                        <div class="remove-wrap">
+                           <span data-symbol="&#xf00d;" class="remove"></span>
+                        </div>
+                     </td>
+                     <td valign="middle">
+                        <div class="product-wrap">
+                           <div class="image">
+                              <img src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg">
+                           </div>
+                           <p class="text">
+                              Фільтр Масла OX360 
+                           </p>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                     <td valign="middle">
+                        <div class="counter-wrapper">
+                           <div class="counter">
+                              <div class="arrow-wrap">
+                                 <span class="arrow-up"></span>
+                                 <span class="arrow-down"></span>
+                              </div>
+                              <span class="count">1</span>
+                           </div>
+                        </div>
+                     </td>
+                     <td valign="middle">300UAH</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <p class="total" style="text-align: right;">Загалом: <span>300UAH</span></p>
+         <div class="button-wrapper">
+            <button type="button" class="btn btn-secondary close" (click)="openModal(false,$event)">Продовжити покупки</button>
+            <button type="button" class="btn btn-success close" (click)="openModal(false,$event)" [routerLink]="[ 'orders']">Оформити замовлення</button>
+         </div>
+      </div>
+        </div>
+   </div>
+</div>

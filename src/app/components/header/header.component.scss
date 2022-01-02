@@ -159,74 +159,266 @@ header {
                 }
             }
         }
-       .basket-item{
-        a {
-            text-decoration: none;
-            .basket {
-                height: 70px;
-                width: 150px;
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                justify-content: center;
-                color: white;
-                span {
-                    font-size: 14px;
-                    &:hover {
-                        color: #0b5ed7;
+        .basket-item {
+            a {
+                text-decoration: none;
+                .basket {
+                    height: 70px;
+                    width: 150px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: center;
+                    color: white;
+                    span {
+                        font-size: 14px;
+                        &:hover {
+                            color: #0b5ed7;
+                        }
                     }
-                }
-                ::before {
-                    content: "\f291";
-                    font-family: "FontAwesome";
-                    font-size: 22px;
-                    margin: 0 5px 0 0;
+                    ::before {
+                        content: "\f291";
+                        font-family: "FontAwesome";
+                        font-size: 22px;
+                        margin: 0 5px 0 0;
+                    }
                 }
             }
         }
-        .modal-basket {
-            display: none;
-            width: 300px;
-            height: 100px;
-            background-color: rgb(14, 14, 14);
-            position: absolute;
-            right: 30px;
-            .content{
-                position: relative;
+    }
+}
+
+.modal-basket {
+    display: none;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(53, 53, 53, 0.503);
+    position: fixed;
+    z-index: 500;
+    .content-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .content {
+            width: 55%;
+            height: 95%;
+            background-color: rgb(85, 85, 85);
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            .mask {
                 width: 100%;
                 height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                span {
-                    position: absolute;
-                    width: 15px;
-                    height: 15px;
-                    top: 5px;
-                    right: 10px;
-                    color: white;
-                    &::after {
-                        color: inherit;
-                        content: attr(data-symbol);
-                        font-family: FontAwesome;
-                        font-size: 14px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-end;
+                // background-color: rgba(0, 0, 0, 0.558);
+                .header-modal {
+                    margin: 0 20px;
+                    height: 80px;
+                    border-bottom: 1px solid white;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+                    h6 {
+                        color: white;
+                        font-size: 25px;
+                        margin: 0 0 0 10px;
                     }
-                    &:hover {
-                        color: #0b5ed7;
-                        transition: all 0.5s;
+                    span {
+                        position: absolute;
+                        width: 15px;
+                        height: 15px;
+                        top: 30%;
+                        right: 2%;
+                        color: red;
+                        &::after {
+                            color: inherit;
+                            content: "\f00d";
+                            font-family: FontAwesome;
+                            font-size: 18px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                        }
+                        &:hover {
+                            color: #0b5ed7;
+                            transition: all 0.5s;
+                        }
                     }
                 }
-                h3{
+                .table-wrapper {
+                    height: 400px;
+                    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+                    tbody {
+                        color: white;
+                        display: block;
+                        overflow: auto;
+                    }
+                    thead,
+                    tbody tr {
+                        display: table;
+                        width: 100%;
+                        table-layout: fixed;
+                        color: white;
+                    }
+                    thead {
+                        font-size: 24px;
+                    }
+
+                    table {
+                        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+                        text-align: center;
+                        thead,
+                        tbody tr {
+                            display: table;
+                            width: 100%;
+                            table-layout: fixed;
+                        }
+
+                        tbody {
+                            width: 100%;
+                            display: block;
+                            height: 400px;
+                            overflow: auto;
+                            .item-products {
+                                height: 130px;
+                                td {
+                                    .remove-wrap {
+                                        width: 100%;
+                                        height: 100%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        .remove {
+                                            color: red;
+                                            &::after {
+                                                color: inherit;
+                                                content: "\f00d";
+                                                font-family: FontAwesome;
+                                                font-size: 18px;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: flex-end;
+                                            }
+                                            &:hover {
+                                                color: #0b5ed7;
+                                                transition: all 0.5s;
+                                            }
+                                        }
+                                    }
+                                    .product-wrap {
+                                        .image {
+                                            width: 40%;
+                                            height: 40%;
+                                            img {
+                                                width: 100%;
+                                                height: 100%;
+                                            }
+                                        }
+                                        .text{
+                                            margin: 10px 0 0 0;
+                                            text-align: right;
+                                            font-size: 20px;
+                                        }
+                                    }
+                                    .counter-wrapper {
+                                        width: 100%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        .counter {
+                                            width: 75px;
+                                            height: 40px;
+                                            background-color: rgba(253, 253, 253, 0.896);
+                                            border: 1px solid rgb(221, 221, 221);
+                                            border-radius: 5px;
+                                            position: relative;
+                                            .arrow-wrap {
+                                                height: 100%;
+                                                width: 35%;
+                                                .arrow-up {
+                                                    height: 50%;
+                                                    display: block;
+                                                    position: relative;
+                                                    color: black;
+                                                    &::after {
+                                                        position: absolute;
+                                                        top: 5%;
+                                                        color: inherit;
+                                                        content: "\f077";
+                                                        font-family: FontAwesome;
+                                                        font-size: 12px;
+                                                    }
+                                                    &:hover {
+                                                        color: #0b5ed7;
+                                                        transition: all 0.5s;
+                                                    }
+                                                }
+                                                .arrow-down {
+                                                    height: 50%;
+                                                    position: relative;
+                                                    display: block;
+                                                    color: black;
+                                                    &::after {
+                                                        position: absolute;
+                                                        top: 0;
+                                                        color: inherit;
+                                                        content: "\f078";
+                                                        font-family: FontAwesome;
+                                                        font-size: 12px;
+                                                    }
+                                                    &:hover {
+                                                        color: #0b5ed7;
+                                                        transition: all 0.5s;
+                                                    }
+                                                }
+                                            }
+                                            .count {
+                                                color: black;
+                                                width: 30%;
+                                                position: absolute;
+                                                top: 8%;
+                                                font-size: 22px;
+                                                font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+                                                    sans-serif;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .total {
+                    padding: 20px 80px 0 0;
+                    font-size: 30px;
+                    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
                     color: white;
-                    font-size: 20px;
+                    span {
+                        color: #0b5ed7;
+                    }
+                }
+                .button-wrapper {
+                    margin: 30px auto;
+                    width: 70%;
+                    display: flex;
+                    justify-content: space-between;
+                    button {
+                        font-size: 20px;
+                    }
                 }
             }
         }
-       }
     }
+}
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .header-else {

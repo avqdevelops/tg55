@@ -1,6 +1,6 @@
+import { CatalogCarsComponent } from './catalog-cars/catalog-cars.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminModelComponent } from './admin/admin-model/admin-model.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminComponent } from './admin/admin.component';
@@ -15,12 +15,16 @@ import {CatalogCategoryComponent } from "./admin/catalog-category/catalog-catego
 import { CategoryComponentCatalog } from './admin/catalog-category/category/category.component';
 import { SubCategoryComponentCatalog } from './admin/catalog-category/sub-category/sub-category.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { BasketComponent } from './pages/basket/basket.component';
 
 const routes: Routes = [
-  {path: '', component:HomeComponent},
+  {path: 'home', component:HomeComponent},
+  {path: '', pathMatch: 'full', redirectTo: "home"},
   {path: 'login', component:LoginComponent},
   {path: 'products/:category', component: ProductsComponent },
   {path:  'orders', component: OrdersComponent },
+  {path:  'basket', component: BasketComponent },
+  {path:'catalog-cars',component:CatalogCarsComponent, canActivate: [AdminLoginGuard]},
   {path: 'admin', component:AdminComponent , canActivate: [AdminLoginGuard],children:[
     { path: '', pathMatch: 'full', redirectTo: 'category-header' },
     { path: 'category-header', component: HeaderCategoryComponent , children: [
@@ -34,8 +38,7 @@ const routes: Routes = [
       {path: 'sub-category', component: SubCategoryComponentCatalog}
     ]  },
     {path:'products',component:AdminProductsComponent},
-    {path:'models',component:AdminModelComponent},
-    {path:'orders',component:AdminOrdersComponent}
+    {path:'orders',component:AdminOrdersComponent},
   ]}
 ];
 
