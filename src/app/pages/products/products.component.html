@@ -1,4 +1,5 @@
 <div class="bgimg"></div>
+<div class="fon"></div>
 <main class="bg">
      <section class="catalogBg">
           <div class="catalog">
@@ -72,7 +73,7 @@
                          <img class="mx-auto" src="https://bcarparts.ru/wp-content/uploads/2018/06/3D60802.jpg"
                               width="98%">
                          <a class="mt-4 price">Products</a>
-                         <p class="price mt-3"> {{ 300 |currency: 'UAH' }} </p>
+                         <p class="price mt-3"> {{ 300 | currency: 'UAH' }} </p>
                          <button type="button" class="btn btn-success mt-2 mx-auto" style="width: 95%">В
                               корзину</button>
                     </div>
@@ -82,12 +83,19 @@
 
 
                <div class="pagination">
-                    <a class="page">◁</a>
+                    <ul>
+                         <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }"> ... </li>
+                    </ul>
+
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+                    <!-- <a class="page">◁</a>
                     <a class="page">1</a>
                     <a class="page">2</a>
                     <a class="page">3</a>
                     <a class="page">4</a>
-                    <a class="page">▷</a>
+                    <a class="page">▷</a> -->
                </div>
           </div>
      </section>

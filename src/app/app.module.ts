@@ -29,6 +29,7 @@ import { ModelComponent } from './catalog-cars/model/model.component';
 import { ModelDetailComponent } from './catalog-cars/model-detail/model-detail.component';
 import { FilterCityPipe } from './shared/pipes/filterCity/filter-city.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSelectModule } from '@angular/material/select';
@@ -60,6 +61,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,

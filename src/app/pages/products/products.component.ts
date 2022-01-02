@@ -3,11 +3,13 @@ import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-products',
+
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
+  public p: number = 1;
+  public collection: any[] = []
   public rangeValue = 0
   public rangeValue2 = 0
   value: number = 0;
