@@ -1,3 +1,4 @@
+import { IHeaderCategoryResponce } from './../../interface/headerCategory/headerCategory.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -9,53 +10,27 @@ import { environment } from 'src/environments/environment';
 export class CategoryService {
   private url = environment.BACKEND_URL;
   private api = {
-     createCategory: `${this.url}/api/category/post-category`,
-     getCategory: `${this.url}/api/category/get-category`,
-     headerCategory: `${this.url}/api/headerCategory`,
-     headerSubCategory: `${this.url}/api/headerSubCategory`
+     category: `${this.url}/api/header-category`
     }
   constructor(private http: HttpClient) { }
 
-  createCategory(category: any): Observable<any> {
-    return this.http.post(this.api.createCategory, category)
+  loadHeaderCategory(): Observable<IHeaderCategoryResponce[]>{
+    return this.http.get<IHeaderCategoryResponce[]>(this.api.category)
   }
-  loadCategory(): Observable<any> {
-    return this.http.get(this.api.getCategory)
-  }
-
-  // headerCategory
-  loadHeaderCategory(): Observable<any>{
-    return this.http.get(this.api.headerCategory)
+  loadHeaderCategoryById(id:string): Observable<IHeaderCategoryResponce[]>{
+    return this.http.get<IHeaderCategoryResponce[]>(`${this.api.category}/${id}`)
   }
   
-  createHeaderCategory(category: any): Observable<any> {
-    return this.http.post(this.api.headerCategory, category)
+  createHeaderCategory(category: any): Observable<void> {
+    return this.http.post<void>(this.api.category, category)
   }
 
-  updateHeaderCategory(category: any): Observable<void> {
-    return this.http.put<void>(this.api.headerCategory, category);
+  updateHeaderCategory(category: any, id:string): Observable<void> {
+    return this.http.patch<void>(`${this.api.category}/${id}`, category);
   }
 
   deleteHeaderCategory(id: any): Observable<void> {
-    return this.http.delete<void>(`${this.api.headerCategory}/${id}`);
+    return this.http.delete<void>(`${this.api.category}/${id}`);
   }
 
-
-  // headerSubCategory
-  loadHeaderSubCategory(): Observable<any>{
-    return this.http.get(this.api.headerSubCategory)
-  }
-  
-  createHeaderSubCategory(subCategory: any): Observable<any> {
-    return this.http.post(this.api.headerSubCategory, subCategory)
-  }
-
-  updateHeaderSubCategory(subCategory: any, id: any): Observable<void> {
-    return this.http.put<void>(this.api.headerSubCategory, subCategory);
-  }
-
-  deleteHeaderSubCategory(id: any): Observable<void> {
-    return this.http.delete<void>(`${this.api.headerSubCategory}/${id}`);
-  }
-  
 }

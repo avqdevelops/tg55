@@ -1,5 +1,5 @@
 section {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: top;
@@ -21,18 +21,69 @@ section .mask {
           justify-content: center;
 }
 
+section .delivery-item {
+  color: #2f2f2f;
+}
+
+section .delivery-item label {
+  font-size: 22px;
+  color: inherit;
+}
+
+section .delivery-item input[type="radio"] {
+  display: none;
+}
+
+section .delivery-item .custom-radio:checked + label {
+  color: #0b5ed7;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+section .delivery-container {
+  display: none;
+  margin: 0 0 20px 0;
+}
+
+section .region-wrapper {
+  display: none;
+}
+
+section .city-wrapper {
+  display: none;
+}
+
+section .branch-wrapper {
+  display: none;
+}
+
+section #chsDel {
+  width: 60%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  border-bottom: 2px solid white;
+  font-size: 18px;
+}
+
+section #chsDel option {
+  background-color: rgba(106, 99, 99, 0.786);
+}
+
 .orderParent {
   position: absolute;
   height: 95%;
   width: 80%;
   left: auto;
-  background-color: #555555;
+  background-color: #eaeaea;
   z-index: 505;
 }
 
 .orderForm {
   height: 100%;
-  background-color: #555555;
+  background-color: #eaeaea;
   -webkit-box-shadow: 0 0 10px 0 black;
           box-shadow: 0 0 10px 0 black;
   width: 50%;
@@ -66,7 +117,7 @@ section .mask {
 }
 
 .txWhite {
-  color: white;
+  color: #2f2f2f;
   margin-bottom: 0.5rem;
   font-size: 16px;
 }
@@ -123,17 +174,17 @@ section .mask {
   height: 40px;
   width: 85%;
   font-size: 20px;
-  background-color: #555555;
+  background-color: transparent;
   border: none;
   outline: none;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #2f2f2f;
   color: white;
 }
 
 .ordinp:focus {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid #0b5ed7;
 }
 
 .doOrder {
@@ -154,19 +205,19 @@ section .mask {
 }
 
 ::ng-deep .mat-form-field-infix {
-  width: 60%;
   margin: 20px 0 0 0;
+  width: 60%;
   height: 50px;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
 }
 
 ::ng-deep .mat-select-value {
-  color: white;
+  color: black;
 }
 
 ::ng-deep .mat-form-field-label {
-  color: white !important;
+  color: black !important;
 }
 
 ::ng-deep .mat-form-field-label::-webkit-input-placeholder {

@@ -1,0 +1,43 @@
+<main class="bg">
+     <section class="catalogBg">
+          <div class="bgimg">
+               <div class="mask">
+                    <div class="title">{{ title }}</div>
+               </div>
+          </div>
+          <div class="catalog">
+               <div class="filter">
+                    <h2 class="mx-4 mt-4 text-white">Фільтри</h2>
+                    <h3 class="mx-4 mt-4 text-white">Ціна:</h3>
+                    <div class="mx-4 myrange">
+                         <ngx-slider [(value)]="value" [(highValue)]="maxvalue" [options]="options"></ngx-slider>
+                    </div>
+                    <h4 class="mx-4 mt-4 text-white">Бренд:</h4>
+                    <div class="brand-wrapper mt-2">
+                      <div *ngFor="let brand of brand,let i =index" class="brand mt-2"> <input #brandItem  type="checkbox" [value]="brand" (click)='filterChange(brandItem.checked,$event)'> {{ brand }}</div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary usebtn mt-4 mx-4" (click)="filter()">Застосувати</button>
+               </div>
+               <div class="catalogProd">
+                    <div class="blockProd" *ngFor="let item of userProducts" [routerLink]="[ '/detail', item._id ]" >
+                         <div class="prod-content">
+                              <img class="mx-auto" [src]="item.imagePath" width="90%" height="55%">
+                              <a class="mt-3 name">{{ item.name }}</a>
+
+                         </div>
+                         <div class="mt-2 wrapper d-flex">
+                              <p class="price mt-2"> {{ item.price }}<span class="icon">₴</span> </p>
+                              <button type="button" class="btn btn-primary">Детальніше</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+     <div class="pagination">
+          <ul>
+               <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }"> ... </li>
+          </ul>
+          <pagination-controls (pageChange)="p = $event" class="mt-5"></pagination-controls>
+     </div>
+</main>

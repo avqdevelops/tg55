@@ -300,11 +300,7 @@ header .header-container .basket-item a .basket ::before {
 .modal-basket .content-wrapper .content {
   width: 55%;
   height: 95%;
-  background-color: #555555;
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  border-radius: 10px;
+  background-color: #eaeaea;
   overflow: hidden;
 }
 
@@ -328,7 +324,7 @@ header .header-container .basket-item a .basket ::before {
 }
 
 .modal-basket .content-wrapper .content .mask .header-modal h6 {
-  color: white;
+  color: #2f2f2f;
   font-size: 25px;
   margin: 0 0 0 10px;
 }
@@ -339,7 +335,7 @@ header .header-container .basket-item a .basket ::before {
   height: 15px;
   top: 30%;
   right: 2%;
-  color: red;
+  color: #2f2f2f;
 }
 
 .modal-basket .content-wrapper .content .mask .header-modal span::after {
@@ -370,7 +366,7 @@ header .header-container .basket-item a .basket ::before {
 }
 
 .modal-basket .content-wrapper .content .mask .table-wrapper tbody {
-  color: white;
+  color: #2f2f2f;
   display: block;
   overflow: auto;
 }
@@ -380,7 +376,7 @@ header .header-container .basket-item a .basket ::before {
   display: table;
   width: 100%;
   table-layout: fixed;
-  color: white;
+  color: #2f2f2f;
 }
 
 .modal-basket .content-wrapper .content .mask .table-wrapper thead {
@@ -425,7 +421,7 @@ header .header-container .basket-item a .basket ::before {
 }
 
 .modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .remove-wrap .remove {
-  color: red;
+  color: #2f2f2f;
 }
 
 .modal-basket .content-wrapper .content .mask .table-wrapper table tbody .item-products td .remove-wrap .remove::after {
@@ -541,7 +537,7 @@ header .header-container .basket-item a .basket ::before {
   color: black;
   width: 30%;
   position: absolute;
-  top: 8%;
+  top: 26%;
   font-size: 22px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -550,7 +546,7 @@ header .header-container .basket-item a .basket ::before {
   padding: 20px 80px 0 0;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: white;
+  color: #2f2f2f;
 }
 
 .modal-basket .content-wrapper .content .mask .total span {

@@ -1,155 +1,196 @@
-section{
-     width: 100vw;
+section {
+     width: 100%;
      height: 100vh;
      background-size: cover;
      background-position: top;
      background-image: url(../../../assets/images/151021-SKODA-Superb-Black-Crystal-4.jpg);
-     .mask{
+     .mask {
           background-color: rgba(46, 46, 46, 0.558);
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 100;
           width: 100%;
           height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
-     }
-}
-
-.orderParent{
-     position: absolute;
-     height: 95%;
-     width: 80%;
-     left: auto;
-     background-color: rgb(85, 85, 85);
-     z-index: 505;
-}
-
-.orderForm{
-     height: 100%;
-     background-color: rgb(85, 85, 85);
-     box-shadow: 0 0 10px 0 black;
-     width: 50%;
-}
-
-.myrow{
-     display: flex;
-     flex-direction: row;
-}
-
-.mycolumn{
-     padding: 30px;
-     display: flex;
-     flex-direction: column;
-}
-
-// .cntr{
-//      display: flex;
-//      justify-content: center;
-//      align-items: center;
-// }
-
-.between{
-     justify-content: space-between;
-}
-
-.txWhite{
-     color: white;
-     margin-bottom: 0.5rem;
-     font-size: 16px;
-}
-
-.basket{
-     width: 95%;
-     height: 80%;
-     background-color: rgb(37, 37, 37);
-     box-shadow: 0 0 10px 0 rgb(37, 37, 37);
-     overflow: auto;
-     margin: auto;
-}
-
-.bsCard{
-     width: 95%;
-     height: 35%;
-     box-shadow: 0 0 10px 0 rgb(85, 85, 85);
-     background-color: rgb(85, 85, 85);
-}
-
-.w100{
-     width: 100%;
-}
-
-.bsimg{
-     height: 100%;
-     padding: 1%;
-}
-
-.deleteProdBtn{
-     width: 1vw;
-     height: 1vw;
-     outline: none;
-     border-radius: 50%; 
-     margin-right: 1%;
-     padding: 0;
-     background-color: rgb(85, 85, 85);
-     transition: 0.1s;
-}
-
-.deleteProdBtn:active{
-     transform: scale(0.9);
-}
-
-.inpLbl{
-     margin-bottom: 0px !important;
-}
-
-.ordinp{
-     height: 40px;
-     width: 85%;
-     font-size: 20px;
-     background-color: rgb(85, 85, 85);
-     border: none;
-     outline: none;
-     border-bottom: 2px solid white;
-     color: white;
-     &:focus{
-          transition: all 0.5s;
-          border-bottom: 2px solid blue;
-     }
-}
-
-.doOrder{
-     width: 85%;
-}
-
-::-webkit-scrollbar {
-     width: 0;
-     height: 0;
- }
-::-webkit-scrollbar-thumb {
-     background: #e31031;
- }
-::-webkit-scrollbar-track {
-     background: #0e0f10;
- }
-
- ::ng-deep{
-     .mat-form-field-infix{
-          width: 60%;
-          margin: 20px 0 0 0;
-          height: 50px;
-          font-size: 20px;
-          color: white;
-          // border-bottom: 2px solid royalblue;
-     }
-     .mat-select-value{
-          color: white;
-     }
-     .mat-form-field-label{
-          color: white !important;
-          &::placeholder{
-               color: inherit;
+          .orderParent {
+               position: absolute;
+               height: 600px;
+               width: 80%;
+               left: auto;
+               background-color: rgb(234, 234, 234);
+               z-index: 505;
+               .orderForm {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    display: flex;
+                    .form-wrapper {
+                         height: 100%;
+                         width: 30%;
+                         box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.614);
+                         right: -15px;
+                         overflow: hidden;
+                         .info-wrapper {
+                              height: 100%;
+                              width: 100% * 2;
+                              display: flex;
+                              position: relative;
+                              .customer-wrapper {
+                                   padding: 30px 40px;
+                                   position: absolute;
+                                   left: 0;
+                                   z-index: 1;
+                                   width: 50%;
+                                   height: 100%;
+                                   background-color: #2234ae;
+                                   background-image: linear-gradient(315deg, #2234ae 0%, #191714be 74%);
+                                   color: white;
+                                   font-size: 20px;
+                                   font-weight: bold;
+                                   label {
+                                        margin: 10px 0 0 0;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                   }
+                                   input {
+                                        margin: 10px 0 0 0;
+                                        width: 100%;
+                                        height: 40px;
+                                        background-color: transparent;
+                                        border: none;
+                                        outline: none;
+                                        color: rgb(214, 214, 214);
+                                        border-bottom: 2px solid rgba(255, 255, 255, 0.31);
+                                        &:focus {
+                                             border-bottom: 2px solid white;
+                                             transition: all 0.5s;
+                                        }
+                                   }
+                                   .btn-success {
+                                        border-color: #00ab66 !important;
+                                        background-color: #00ab66;
+                                        width: 100%;
+                                        margin: 0 auto;
+                                        color: white;
+                                        .arrow-3 {
+                                             color: white;
+                                             cursor: pointer;
+                                             text-decoration: none;
+                                             font-size: 13px;
+                                             display: inline-block;
+                                        }
+                                        .arrow-3 .arrow-3-icon {
+                                             position: relative;
+                                             top: -1px;
+                                             transition: transform 0.3s ease;
+                                             vertical-align: middle;
+                                        }
+                                        .arrow-3 .arrow-3-iconcircle {
+                                             transition: stroke-dashoffset 0.3s ease;
+                                             stroke-dasharray: 95;
+                                             stroke-dashoffset: 95;
+                                        }
+                                        &:hover {
+                                             .arrow-3-icon {
+                                                  transform: translate3d(5px, 0, 0);
+                                                  .arrow-3-iconcircle {
+                                                       stroke-dashoffset: 0;
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                              .delivery-wrapper {
+                                   position: absolute;
+                                   left: 50%;
+                                   z-index: 2;
+                                   width: 50%;
+                                   height: 100%;
+                                   background-color: #2234ae;
+                                   background-image: linear-gradient(315deg, #2234ae 0%, #191714be 74%);
+                                   transition: all 1.2s;
+                                   padding: 30px 40px;
+                                   color: white;
+                                   box-shadow: 0 0 10px 0 black;
+                                   display: block;
+                                   position: relative;
+                                   .title {
+                                        margin: 20px 0 0 0;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                   }
+                                   label {
+                                        margin: 10px 0 ;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        margin: 0 0 0 10px;
+                                   }
+                              }
+                         }
+                    }
+                    .table-wrapper{
+                         width: 70%;
+                         height: 100%;
+                         padding: 40px;
+                         h2{
+                              font-weight: bold;
+                         }
+                         .wrapper{
+                              height: 75%;
+                              font-weight: bold;
+                              margin: 0 20px;
+                              thead{
+                                   font-size: 18px;
+                              }
+                              tbody{
+                                   font-size: 16px;
+                              }
+                         }
+                         
+                         .button-wrapper{
+                              height: 25%;
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-between;
+                              padding: 20px 0;
+                              .total{
+                                   font-size: 25px;
+                                   font-weight: bold;
+                                   .icon{
+                                    font-size: 20px;
+                                   }
+                              }
+                         }
+                         
+                    }
+               }
           }
      }
-     .mat-form-field{
-          width: 60%;
+}
+
+::ng-deep {
+     .mat-form-field {
+          width: 100%;
+          height: 40px;
+          margin: 20px 0 0 0;
+          padding: 0 30px;
+          .mat-select-arrow {
+               color: rgba(255, 255, 255, 0.703);
+          }
+          .mat-form-field-underline {
+               height: 2px;
+               background-color: rgba(255, 255, 255, 0.648);
+          }
+          .ng-star-inserted {
+               margin: 0 0 10px;
+               font-size: 16px;
+               font-weight: bold;
+               color: white !important;
+          }
      }
- }
+}

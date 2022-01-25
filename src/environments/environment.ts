@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BACKEND_URL: 'http://localhost:7000'
+  // BACKEND_URL: 'https://blooming-brook-81875.herokuapp.com'
+   BACKEND_URL: 'http://localhost:7000'
 };
 
 /*

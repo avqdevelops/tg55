@@ -1,0 +1,102 @@
+.bg {
+    position: relative;
+    top: 6vh;
+    width: 100%;
+    min-height: 700px;
+    display: flex;
+    justify-content: flex-end;
+}
+.bgimg {
+    height: 380px;
+    width: 100vw;
+    background-image: url("https://autoreview.ru/images/Article/1587/Article_158720_860_575.jpg");
+    background-position: top;
+    background-size: cover;
+    .mask {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(19, 19, 19, 0.662);
+        display: flex;
+        align-items: center;
+        font-size: 35px;
+        .title {
+            width: 50%;
+            height: 20%;
+            line-height: 40px;
+            margin-left: 5%;
+            color: white;
+        }
+    }
+}
+
+.product-info {
+    background-color: #fff;
+    .img-wrapper {
+        width: 60%;
+        margin: 0 auto;
+        padding: 50px 0 0 0;
+        display: flex;
+        justify-content: space-between;
+        .wrapper {
+            width: 40%;
+            position: relative;
+            .button-wrapper {
+                margin: 20px 0 0 0;
+                display: flex;
+                justify-content: space-between;
+                .price {
+                    font-weight: bold;
+                    font-size: 45px;
+                    line-height: 50px;
+                    .icon {
+                        font-size: 30px;
+                    }
+                }
+                button {
+                    width: 30%;
+                    height: 50px;
+                }
+            }
+            .detail {
+                margin: 40px 0 0 0;
+                width: 100%;
+                .info-item {
+                    width: 100%;
+                    font-size: 16px;
+                    display: flex;
+                    .item {
+                        display: block;
+                        width: 250px;
+                        margin: 0 0 20px ;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    .info{
+                        width: 200px;
+                    }
+                }
+                .text{
+                    margin: 0 0 0 20px;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                img{
+                    margin: 10px 0 20px 20px;
+                }
+            }
+         
+        }
+    }
+    .description {
+        width: 60%;
+        margin: 20px auto 0;
+        padding: 40px 0;
+        text-align: left;
+        font-size: 16px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}

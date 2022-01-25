@@ -47,35 +47,57 @@
     }
     .carousel {
         width: 100%;
+        height: 450px;
         .product {
             margin: 0 0 0 20px;
             width: 270px;
             height: 400px;
-            background-color: rgba(19, 19, 19, 0.855);
-            box-shadow: 0 0 10px 0 black;
+            position: relative;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             flex-direction: column;
+           .img-wrapper{
+               height: 70%;
             img {
-                height: 60%;
-                width: 100%;
+                margin: 5% auto;
+                height: 80%;
+                width: 95%;
             }
             a {
+                width: 100%;
+                display: block;
                 font-size: 18px;
                 color: white;
                 text-decoration: none;
-                &:hover {
-                    color: #0b5ed7;
-                }
-                transition: all 0.5s;
+                text-align: center;
             }
+           }
             p {
+                margin-left: 20px;
                 text-align: center;
                 color: white;
+                font-size: 30px;
+                .icon{
+                    font-size: 22px;
+                }
+            }
+            &:hover{
+                border-radius: 10px;
+                box-shadow: 0 0 20px 0 rgb(207, 207, 207);
+                transition: all 0.5s;
+            }
+            .info-wrapper{
+                position: absolute;
+                bottom: 7%;
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
             }
         }
     }
     form {
+        overflow: hidden;
+        border-radius: 20px;
         height: 560px;
         background-image: url("https://cdn.skoda-storyboard.com/2017/03/Oc_0029.jpg");
         background-size: cover;
@@ -98,18 +120,32 @@
             text-align: center;
         }
         .form-wrapper {
-            width: 50%;
+            width: 40%;
             color: white;
             padding: 0 30px;
             p {
                 font-size: 18px;
+                margin: 20px 0 10px 0;
             }
       
             textarea , input {
+                line-height: 30px;
                 color: white;
-                width: 80%;
+                width: 90%;
                 background-color: rgba(87, 87, 87, 0.558);
                 resize: none;
+            }
+
+            input{
+                border: none;
+                border-bottom: 2px solid white;
+                background-color: transparent;
+                outline: none;
+                font-size: 18px;
+                &:focus{
+                    border-bottom: 2px solid rgb(34, 34, 253); 
+                    transition: all 0.5s;
+                }
             }
             
         }

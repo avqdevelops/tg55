@@ -1,3 +1,87 @@
-<section style="width: 95vh; height: 95vw;">
+<ng-template #noItem>
+    <div class="container-fluid close">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Корзина</h5>
+                    </div>
+                    <div class="card-body cart">
+                        <div class="col-sm-12 empty-cart-cls text-center"> <img src="assets/images/148964.png"
+                                width="130" height="130" class="img-fluid mb-4 mr-3">
+                            <h3><strong>Ваша корзина пуста</strong></h3>
+                            <button class="btn btn-primary cart-btn-transform m-3 close" data-abc="true">Продовжити
+                                покупки</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
 
-</section>
+
+<div class="card" *ngIf="cart ; else noItem">
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>Корзина</b></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="container-product">
+                <div class="row border-top border-bottom" *ngFor="let item of cart">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" [src]="item.imagePath"></div>
+                        <div class="col">
+                            <div class="row">{{ item.name }}</div>
+                        </div>
+                        <div class="col"> <a href="#">-</a><span class="border">{{item.count}}</span><a href="#">+</a>
+                        </div>
+                        <div class="col">{{item.price}} ₴
+                            <span class="fa fa-times-circle" (click)="deleteProduct(item)">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-to-shop">
+                <a class="arrow-3 close">
+                    <svg class="arrow-3-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32">
+                        <g fill="none" stroke="#2c3e50" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
+                            <circle class="arrow-3-iconcircle" cx="16" cy="16" r="15.12"></circle>
+                            <path class="arrow-3-icon--arrow"
+                            fill="#2c3e50" d="M26.025 14.496l-14.286-.001 6.366-6.366L15.979 6 5.975 16.003 15.971 26l2.129-2.129-6.367-6.366h14.29z"></path>
+                            
+                        </g>
+                    </svg>
+                    Продовжити покупки
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Загально</b></h5>
+            </div>
+            <div class="row" style="border-top: 1px solid rgba(168, 168, 168, 0.869); padding: 2vh 0;">
+                <div class="col">Загальна ціна:</div>
+                <div class="col text-right">{{totalCart}} <span class="icon">₴</span></div>
+            </div>
+            <button class="btn btn-success close mt-4" [routerLink]="[ '/checkout']">
+                <a class="arrow-3 close">Оформити замовлення
+                    <svg class="arrow-3-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                        viewBox="0 0 32 32">
+                        <g fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"
+                            stroke-miterlimit="10">
+                            <circle class="arrow-3-iconcircle" cx="16" cy="16" r="15.12"></circle>
+                            <path class="arrow-3-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path>
+                        </g>
+                    </svg>
+                </a>
+            </button>
+        </div>
+    </div>
+</div>

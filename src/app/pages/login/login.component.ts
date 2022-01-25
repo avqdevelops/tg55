@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import jwt_decode from "jwt-decode";
+import { Component, OnDestroy, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -15,7 +16,12 @@ export class LoginComponent implements OnInit , OnDestroy {
   public loginForm!:FormGroup;
   public registerPage = { 'moveLogin': false };
   public loginPage = { 'moveRegister': false };
-  constructor(private fb: FormBuilder,private authService:AuthService, private router:Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private authService:AuthService, 
+    private router:Router, 
+    private elemRef:ElementRef
+    ) { }
 
   ngOnInit(): void {
     this.initFormRegister()
@@ -37,14 +43,15 @@ export class LoginComponent implements OnInit , OnDestroy {
     })
   }
 
-  loginUser(){
+  loginUser():void{
     this.loginSubscription = this.authService.login(this.loginForm.value).subscribe((data:any) => {
-      if(data.role === 'ADMIN'){
-       this.router.navigate(['admin'])
-      }
       localStorage.setItem('user', JSON.stringify(data));
       this.authService.$checkLogin.next(true);
       this.initFormLogin();
+      const decodeUser:any = jwt_decode(data.token)
+      if(decodeUser.role === 'ADMIN'){
+        this.router.navigate(['admin'])
+      }
     },error => {
       console.log(error)
     })
@@ -62,13 +69,21 @@ export class LoginComponent implements OnInit , OnDestroy {
   }
 
   moveRegisterPage(status: boolean) {
+    let elem = this.elemRef.nativeElement.querySelector('.container') 
     if (status) {
-      this.loginPage = { 'moveRegister': true }
-      this.registerPage = { 'moveLogin': true }
+      elem.classList.add("right-panel-active");
     } else {
-      this.loginPage = { 'moveRegister': false }
-      this.registerPage = { 'moveLogin': false }
+      elem.classList.remove("right-panel-active");
     }
+  }
+
+  closeLoginModal(event:any){
+    const close = event.target.className
+    close.split(' ').forEach((elem: any) => {
+      if (elem == 'close') {
+        document.body.style.overflowY = 'scroll';
+      }
+    });
   }
 
  ngOnDestroy(){
@@ -78,3 +93,4 @@ export class LoginComponent implements OnInit , OnDestroy {
  }
 
 }
+

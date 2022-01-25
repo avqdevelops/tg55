@@ -1,0 +1,34 @@
+<div class="category-title d-flex">
+    <h2>Категорії шапки</h2>
+    <div class="button-wrapper">
+        <button type="button" class="btn btn-primary save me-2" title="Зберегти" (click)="save()"><span></span></button>
+        <button type="button" class="btn btn-default back" title="Скасувати" (click)="back()"><span></span></button>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <form [formGroup]="categoryForm">
+            <div class="input-container mt-4">
+                <span>Назва:</span>
+                <input type="text" class="form-control my-input" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" formControlName="name">
+            </div>
+            <div class="array-form-wrapper input-container">
+                <span>Додати підкатегорію:</span>
+                <button type="button" class="btn btn-primary add" title="Додати" (click)="submit()"><span></span></button>
+            </div>
+            <div class="content mt-5">
+                <div formArrayName="subCategory" style="height: 250px; overflow-y: scroll;">
+                    <div class="d-inline-block" *ngFor="let child of categoryForm.get('subCategory').controls; let i = index">
+                        <div [formGroupName]="i">
+                            <input class="form-control subCategory-input me-2 mt-2 d-inline" id="number" formControlName="name" placeholder="Назва" />
+                            <input class="form-control subCategory-input me-2 mt-2 d-inline" id="brand" formControlName="path"
+                            placeholder="Шлях" />
+                            <button type="button" class="btn btn-danger delete" (click)="deleteItem(i)"><span></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { CategoryComponentHeader } from './admin/header-category/category/category.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,18 +14,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BasketComponent } from './pages/basket/basket.component';
-import { ProductsComponent } from './pages/products/products.component';
+import { CatalogComponent } from './pages/catalog/catalog.component';
 import { HeaderCategoryComponent } from './admin/header-category/header-category.component';
-import { CatalogCategoryComponent } from './admin/catalog-category/catalog-category.component';
-import { CategoryComponentCatalog } from './admin/catalog-category/category/category.component';
-import { SubCategoryComponentCatalog } from './admin/catalog-category/sub-category/sub-category.component';
-import { SubCategoryComponentHeader } from './admin/header-category/sub-category/sub-category.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { CatalogCarsComponent } from './catalog-cars/catalog-cars.component';
-import { ModelComponent } from './catalog-cars/model/model.component';
-import { ModelDetailComponent } from './catalog-cars/model-detail/model-detail.component';
 import { FilterCityPipe } from './shared/pipes/filterCity/filter-city.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -34,6 +26,17 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ToastrModule } from 'ngx-toastr';
+import { HeaderCategoryActionsComponent } from './admin/header-category/header-category-actions/header-category-actions.component';
+import { HeaderCategoryTablesComponent } from './admin/header-category/header-category-tables/header-category-tables.component';
+import { ProductsTableComponent } from './admin/admin-products/products-table/products-table.component';
+import { ProductsActionsComponent } from './admin/admin-products/products-actions/products-actions.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { OrdersTableComponent } from './admin/admin-orders/orders-table/orders-table.component';
+import { OrdersDetailComponent } from './admin/admin-orders/orders-detail/orders-detail.component';
+import { PinchZoomModule } from 'ngx-pinch-zoom';
+
 
 @NgModule({
   declarations: [
@@ -46,18 +49,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HeaderComponent,
     FooterComponent,
     BasketComponent,
-    ProductsComponent,
+    CatalogComponent,
     HeaderCategoryComponent,
-    SubCategoryComponentHeader,
-    CatalogCategoryComponent,
-    CategoryComponentHeader,
-    CategoryComponentCatalog,
-    SubCategoryComponentCatalog,
     OrdersComponent,
-    CatalogCarsComponent,
-    ModelComponent,
-    ModelDetailComponent,
     FilterCityPipe,
+    HeaderCategoryActionsComponent,
+    HeaderCategoryTablesComponent,
+    ProductsTableComponent,
+    ProductsActionsComponent,
+    ProductDetailComponent,
+    OrdersTableComponent,
+    OrdersDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserAnimationsModule,
     MatSelectModule,
     MatFormFieldModule,
-    NgxMatSelectSearchModule
+    NgxMatSelectSearchModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    PinchZoomModule
   ],
   providers: [],
   bootstrap: [AppComponent]

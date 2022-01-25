@@ -72,8 +72,6 @@
   width: 270px;
   height: 400px;
   background-color: rgba(19, 19, 19, 0.855);
-  -webkit-box-shadow: 0 0 10px 0 black;
-          box-shadow: 0 0 10px 0 black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,25 +85,27 @@
 }
 
 .container .carousel .product img {
+  margin: 0 auto;
   height: 60%;
-  width: 100%;
+  width: 95%;
 }
 
 .container .carousel .product a {
   font-size: 18px;
   color: white;
   text-decoration: none;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.container .carousel .product a:hover {
-  color: #0b5ed7;
 }
 
 .container .carousel .product p {
   text-align: center;
   color: white;
+}
+
+.container .carousel .product:hover {
+  -webkit-box-shadow: 0 0 10px 0 white;
+          box-shadow: 0 0 10px 0 white;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .container form {

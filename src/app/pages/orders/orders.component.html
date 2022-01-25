@@ -1,53 +1,242 @@
-<section>
-     <div class="mask">
-          <div class="orderParent">
-               <div class="orderForm">
-                    <div class="mx-auto mycolumn cntr">
-                         <h2 class="txWhite" style="font-size: 22px;">Оформлення замовлення</h2>
-                         <label class="txWhite inpLbl mt-2" for="lname">Прізвище:</label>
-                         <input class="ordinp" id="lname" type="text">
-                         <label class="txWhite inpLbl mt-2" for="name">Ім'я:</label>
-                         <input class="ordinp" id="name" type="text">
-                         <label class="txWhite inpLbl mt-2" for="email">Email:</label>
-                         <input class="ordinp" id="email" type="text">
-                         <label class="txWhite inpLbl mt-2" for="number">Номер телефону:</label>
-                         <input class="ordinp" id="number" type="text"/> 
-                         <mat-form-field>
-                         <mat-select placeholder="Виберіть область" #singleSelect>
-                              <mat-option>
-                                   <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
-                              </mat-option>
-                              <mat-option *ngFor="let item of obl | filterCity:value" [value]="item.Description"
-                                   (click)="loadCity(item)">
-                                   {{item.Description}}
-                              </mat-option>
-                         </mat-select>
-                         </mat-form-field>
-                         <mat-form-field>
-                              <mat-select placeholder="Виберіть місто" #singleSelect>
-                                   <mat-option>
-                                        <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
-                                   </mat-option>
-                                   <mat-option *ngFor="let item of city | filterCity:value" [value]="item.Description"
-                                        (click)="loadItem(item)">
-                                        {{item.Description}}
-                                   </mat-option>
-                              </mat-select>
-                         </mat-form-field>
-                         <mat-form-field>
-                              <mat-select placeholder="Виберіть відділення" #singleSelect>
-                                   <mat-option>
-                                        <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
-                                   </mat-option>
-                                   <mat-option *ngFor="let item of branch | filterCity:value" [value]="item.Description"
-                                        (click)="saveDelivery(item)">
-                                        {{item.Description}}
-                                   </mat-option>
-                              </mat-select>
-                         </mat-form-field>
-                         <!-- <button class="btn btn-success mt-4 doOrder">Замовити</button> -->
-                    </div>
-               </div>
+<!-- <section>
+  <div class="mask">
+    <div class="orderParent d-flex">
+      <div class="orderForm">
+        <div class="mx-auto mycolumn cntr">
+          <form [formGroup]="orderForm">
+            <h2 class="txWhite" style="font-size: 22px;">Оформлення замовлення</h2>
+            <label class="txWhite inpLbl mt-2" for="name">Ім'я:</label><br>
+            <input class="ordinp" id="name" type="text" formControlName="firstName"><br>
+            <label class="txWhite inpLbl mt-2" for="lname">Прізвище:</label><br>
+            <input class="ordinp" id="lname" type="text" formControlName="lastName"><br>
+            <label class="txWhite inpLbl mt-2" for="name">По батькові:</label><br>
+            <input class="ordinp" id="name" type="text" formControlName="middleName"><br>
+            <label class="txWhite inpLbl mt-2" for="email">Email:</label><br>
+            <input class="ordinp" id="email" type="text" formControlName="email"><br>
+            <label class="txWhite inpLbl mt-2" for="number">Номер телефону:</label><br>
+            <input class="ordinp" id="number" type="text" formControlName="phoneNumber" />
+            <div class="delivery-item mt-4">
+              <input type="radio" class="custom-radio" id="radio1" name="deliveryInfo" value="Самовивіз"
+                formControlName="deliveryInfo">
+              <label for="radio1" class="me-4" (click)="loadRegion(false)">Самовивіз</label>
+              <input type="radio" class="custom-radio" id="radio2" name="deliveryInfo">
+              <label for="radio2" (click)="loadRegion(true)">Доставка</label>
+            </div>
+          </form>
+          <div class="region-wrapper">
+            <mat-form-field>
+              <mat-select placeholder="Виберіть область" #singleSelect>
+                <mat-option>
+                  <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let item of region | filterCity:value" [value]="item.Description"
+                  (click)="loadCity(item)">
+                  {{item.Description}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
-     </div>
+          <div class="city-wrapper">
+            <mat-form-field>
+              <mat-select placeholder="Виберіть місто" #singleSelect>
+                <mat-option>
+                  <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let item of city | filterCity:value" [value]="item.Description"
+                  (click)="loadBranch(item)">
+                  {{item.Description}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="branch-wrapper">
+            <mat-form-field>
+              <mat-select placeholder="Виберіть відділення" #singleSelect>
+                <mat-option>
+                  <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let item of branch | filterCity:value" [value]="item.Description"
+                  (click)="saveDelivery(item)">
+                  {{item.Description}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+  </div>
+</section>-->
+
+
+
+<section>
+  <div class="mask">
+    <div class="orderParent d-flex">
+      <div class="orderForm">
+        <div class="table-wrapper">
+          <h2>Оформлення замовлення:</h2>
+          <hr style="height: 2px; background-color: rgba(0, 0, 0, 0.572);">
+          <div class="wrapper">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Назва</th>
+                  <th scope="col">Кількісьть</th>
+                  <th scope="col">Ціна</th>
+                  <th scope="col">Загально</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of basket; let i = index">
+                  <td valign="middle">{{ item.name }}</td>
+                  <td valign="middle" style="font-size: 16px;" class="text-center"><span
+                      style="font-weight: bold; font-size: 12px;">x</span>{{ item.count }}</td>
+                  <td valign="middle">{{ item.price }}₴</td>
+                  <td valign="middle" class="text-center">{{ item.price * item.count }}₴</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="button-wrapper">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+              data-bs-target="#cancelModal">Скасувати</button>
+            <span class="total">Загальна сума: {{total}} <span class="icon">₴</span> </span>
+          </div>
+        </div>
+
+        <div class="form-wrapper">
+          <div class="info-wrapper">
+            <div class="customer-wrapper">
+              <h2>Заповніть персональні дані:</h2>
+              <hr style="background-color: white; height: 2px;">
+              <label for="">Прізвище:</label>
+              <input type="text">
+              <label for="">Ім'я:</label>
+              <input type="text">
+              <label for="">Побатькові:</label>
+              <input type="text">
+              <label for="">Номер телефону:</label>
+              <input type="text">
+              <label for="">Email:</label>
+              <input type="text">
+              <button class="btn btn-success mt-5" (click)="moveToDelivery(true)">
+                <a class="arrow-3">Перейти до доставки
+                  <svg class="arrow-3-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                    viewBox="0 0 32 32">
+                    <g fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
+                      <circle class="arrow-3-iconcircle" cx="16" cy="16" r="15.12"></circle>
+                      <path class="arrow-3-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path>
+                    </g>
+                  </svg>
+                </a>
+              </button>
+            </div>
+            <!--  -->
+            <div class="delivery-wrapper">
+              <h2>Заповніть дані доставки:</h2>
+              <hr style="background-color: white; height: 2px;">
+              <span class="title mt-2">Виберіть спосіб оплати:</span>
+              <div class="inputGroup">
+                <div class="mt-3">
+                  <div class="mt-2">
+                    <input type="radio" id="r1" name="payment" />
+                    <label for="r1"><span></span>Готівкою при отриманні</label>
+                  </div>
+                  <div class="mt-2">
+                    <input type="radio" id="r1" name="payment" />
+                    <label for="r1"><span></span>На карту</label>
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <span class="title mt-2">Виберіть спосіб доставки:</span><br>
+                  <div class="mt-2">
+                    <input type="radio" id="r1" name="delivery" />
+                    <label for="r1"><span></span>Самовивіз</label>
+                  </div>
+                  <div class="mt-2">
+                    <input type="radio" id="r1" name="delivery" />
+                    <label for="r1"><span></span>Доставка</label>
+                  </div>
+                </div>
+                <div class="region-wrapper">
+                  <mat-form-field>
+                    <mat-select placeholder="Виберіть область" #singleSelect>
+                      <mat-option>
+                        <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                      </mat-option>
+                      <mat-option *ngFor="let item of region | filterCity:value" [value]="item.Description"
+                        (click)="loadCity(item)">
+                        {{item.Description}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="city-wrapper">
+                  <mat-form-field>
+                    <mat-select placeholder="Виберіть місто" #singleSelect>
+                      <mat-option>
+                        <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                      </mat-option>
+                      <mat-option *ngFor="let item of city | filterCity:value" [value]="item.Description"
+                        (click)="loadBranch(item)">
+                        {{item.Description}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="branch-wrapper">
+                  <mat-form-field>
+                    <mat-select placeholder="Виберіть відділення" #singleSelect>
+                      <mat-option>
+                        <ngx-mat-select-search [(ngModel)]="value"></ngx-mat-select-search>
+                      </mat-option>
+                      <mat-option *ngFor="let item of branch | filterCity:value" [value]="item.Description"
+                        (click)="saveDelivery(item)">
+                        {{item.Description}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <button type="button" class="btn btn-danger " style="margin: 50px 20px 0 0; width: 45%;"
+                  (click)="moveToDelivery(false)">Назад</button>
+                <button type="button" class="btn btn-success" style=" margin: 50px 0 0 0; width: 45%;">Купити</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Ви дійсно хочете скасувати?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+        <button type="button" class="btn btn-primary" [routerLink]="['']" data-bs-dismiss="modal">Підтвердити</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Ви підтверджуєте замовлення?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="saveOrder()">Підтвердити</button>
+      </div>
+    </div>
+  </div>
+</div>

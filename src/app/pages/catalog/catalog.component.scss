@@ -1,0 +1,212 @@
+.bg {
+     position: relative;
+     top: 6vh;
+     width: 100%;
+     min-height: 700px;
+     display: flex;
+     justify-content: flex-end;
+}
+.bgimg {
+     height: 380px;
+     width: 100vw;
+     background-image: url("https://autoreview.ru/images/Article/1587/Article_158720_860_575.jpg");
+     background-position: top;
+     background-size: cover;
+     .mask {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(19, 19, 19, 0.662);
+          display: flex;
+          align-items: center;
+          font-size: 50px;
+          .title {
+               margin-left: 5%;
+               color: white;
+          }
+     }
+}
+
+.catalog {
+     width: 100%;
+     padding: 40px;
+     min-height: 1000px;
+     box-shadow: 0 0 10px 0 rgb(85, 85, 85);
+     background-color: #fff;
+     width: 100%;
+     display: flex;
+     flex-flow: row;
+}
+
+.brand-wrapper {
+     width: 70%;
+     height: 250px;
+     margin-left: 20px;
+     .brand {
+          margin: 0 0 0 30px;
+          font-size: 16px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+        input{
+             margin: 0 10px 0 0 ;
+        }
+     }
+}
+
+.sort {
+     margin-left: 7%;
+}
+.filter {
+     width: 27%;
+     height: 100%;
+     padding-bottom: 2%;
+}
+.usebtn {
+     width: 30%;
+}
+
+.catalogProd {
+     width: 75%;
+     display: flex;
+     flex-flow: row wrap;
+}
+
+.blockProd {
+     width: 28%;
+     height: 450px;
+     margin-left: 2%;
+     margin-top: 2%;
+     position: relative;
+     .prod-content {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          position: absolute;
+          top: 2%;
+     }
+     &:hover {
+          box-shadow: 0 0 10px 0 black;
+          border-radius: 10px;
+          transition: all 1s;
+     }
+     .wrapper {
+          width: 90%;
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          bottom: 2%;
+          left: 2%;
+          .price {
+               margin: 0 0 0 30px;
+               background-color: none;
+               font-size: 25px;
+               color: #2f2f2f;
+               text-align: center;
+               text-decoration: none;
+               font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+               font-weight: bold;
+               .icon {
+                    font-size: 18px;
+                    margin: 0 0 0 3px;
+                    color: rgb(55, 54, 54);
+               }
+          }
+     }
+}
+.name {
+     margin: 0 20px;
+     font-size: 16px;
+     font-weight: bold;
+     color: #2f2f2f;
+     text-align: center;
+     text-decoration: none;
+     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+     font-weight: bold;
+}
+.pagination {
+     position: absolute;
+     bottom: 0%;
+     left: 41%;
+     background-color: none;
+     text-align: center;
+}
+.page {
+     margin-left: 20%;
+     padding-bottom: 15px;
+}
+
+.text-white {
+     font-size: 20px;
+     font-weight: bold;
+     color: #2f2f2f !important;
+}
+
+::ng-deep {
+     .myrange {
+          .ngx-slider {
+               padding: 0 30px;
+               .ngx-slider-pointer {
+                    background-color: transparent;
+                    outline: none;
+                    &::after {
+                         top: 8px;
+                         width: 15px;
+                         height: 15px;
+                         border-radius: 50px;
+                         background-color: #2a2add;
+                         &:hover {
+                              background-color: black;
+                         }
+                    }
+               }
+               .ngx-slider-selection {
+                    background-color: #2a2add;
+               }
+               .ngx-slider-bar-wrapper {
+                    width: 80%;
+               }
+          }
+     }
+     .ngx-pagination {
+          padding: 50px 0 0 0;
+          .pagination-previous {
+               display: none;
+          }
+          .pagination-next {
+               display: none;
+          }
+          .current {
+               width: 30px;
+               height: 30px;
+               border-radius: 5px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               span {
+                    font-size: 14px;
+               }
+               &:hover {
+                    background-color: #2f2f2f;
+                    transition: all 0.5s;
+               }
+          }
+     }
+}
+
+.myrange {
+     width: 80%;
+}
+.mrow {
+     display: flex;
+     flex-direction: row;
+}
+.myselect {
+     width: 80%;
+     padding-top: 1%;
+     padding-bottom: 1%;
+     font-size: 20px;
+}
+
+.rangenum {
+     font-size: 18px;
+}

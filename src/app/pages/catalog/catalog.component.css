@@ -1,0 +1,193 @@
+.bg {
+  position: relative;
+  top: 6vh;
+  width: 100%;
+  min-height: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.bgimg {
+  height: 390px;
+  width: 100%;
+  background-image: url("https://autoreview.ru/images/Article/1587/Article_158720_860_575.jpg");
+  background-position: top;
+  background-size: cover;
+}
+
+.bgimg .mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(19, 19, 19, 0.662);
+}
+
+.catalog {
+  padding: 40px;
+  min-height: 1000px;
+  -webkit-box-shadow: 0 0 10px 0 #555555;
+          box-shadow: 0 0 10px 0 #555555;
+  background-color: #eaeaea;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+.sort {
+  margin-left: 7%;
+}
+
+.filter {
+  width: 23%;
+  height: 100%;
+  padding-bottom: 2%;
+  
+  -webkit-box-shadow: 0px 0px 5px 0px #353535;
+          box-shadow: 0px 0px 5px 0px #353535;
+          
+}
+
+.usebtn {
+  width: 80%;
+}
+
+.catalogProd {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.blockProd {
+  width: 23%;
+  height: 400px;
+  margin-left: 2%;
+  margin-top: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.blockProd:hover {
+  -webkit-box-shadow: 0 0 10px 0 black;
+          box-shadow: 0 0 10px 0 black;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.price,
+.page {
+  background-color: none;
+  color: white;
+  font-size: 18px;
+  color: #2f2f2f;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0%;
+  left: 41%;
+  background-color: none;
+  text-align: center;
+}
+
+.page {
+  margin-left: 20%;
+  padding-bottom: 15px;
+}
+
+.text-white {
+  color: #2f2f2f !important;
+}
+
+::ng-deep .myrange .ngx-slider .ngx-slider-bubble,
+::ng-deep .myrange .ngx-slider .ngx-slider-floor,
+::ng-deep .myrange .ngx-slider .ngx-slider-ceil {
+  color: #2f2f2f !important;
+}
+
+::ng-deep .ngx-pagination .pagination-previous {
+  display: none;
+}
+
+::ng-deep .ngx-pagination .pagination-next {
+  display: none;
+}
+
+::ng-deep .ngx-pagination .current {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+::ng-deep .ngx-pagination .current span {
+  font-size: 14px;
+}
+
+::ng-deep .ngx-pagination .current:hover {
+  background-color: #2f2f2f;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.myrange {
+  width: 80%;
+}
+
+.mrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.myselect {
+  width: 80%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-size: 20px;
+}
+
+.rangenum {
+  font-size: 18px;
+}
+/*# sourceMappingURL=products.component.css.map */

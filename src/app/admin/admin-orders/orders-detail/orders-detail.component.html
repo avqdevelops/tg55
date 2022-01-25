@@ -1,0 +1,82 @@
+<div class="category-title d-flex">
+    <h2>Замовлення</h2>
+    <div class="button-wrapper">
+        <button type="button" class="btn btn-primary save me-2" title="Зберегти"><span></span></button>
+        <button type="button" class="btn btn-default back" title="Скасувати" (click)="back()"><span></span></button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="wrapper">
+        <div class="col">
+            <div class="col-header">
+               <span class="basket-icon"></span>Деталі Замолення
+            </div>
+            <div class="col-item">
+                <div class="icon-calendar item-ico" title="Дата замовлення"></div>{{ order.date }}
+            </div>
+            <div class="col-item">
+                <div class="icon-payment item-ico" title="Спосіб оплати"></div>{{ order.payment }}
+            </div>
+            <div class="col-item">
+                <div class="history-icon item-ico" title="Статус Замовлення"></div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>{{order.status}}</option>
+                  </select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col-header">
+                <span class="customer-icon"></span>Деталі Замовника
+             </div>
+             <div class="col-item">
+                <div class="item-ico customer-icon" title="Замовник"></div>{{ order.lastName }},{{ order.firstName }},{{order.middleName}}
+            </div>
+             <div class="col-item">
+                <div class="item-ico email-icon" title="Email"></div>{{ order.email }}
+            </div>
+             <div class="col-item">
+                <div class="item-ico phone-icon" title="Номер Телефона"></div>{{ order.phoneNumber }}
+            </div>
+        </div>
+        <div class="col" *ngIf="order.deliveryInfo">
+            <div class="col-header">
+                <span class="delivery-icon"></span>Деталі доставки
+             </div>
+             <div class="col-item">
+                 {{order.deliveryInfo.SettlementAreaDescription}}
+             </div>
+             <div class="col-item">
+                 {{order.deliveryInfo.SettlementTypeDescription}}: {{order.deliveryInfo.SettlementDescription}}
+             </div>
+             <div class="col-item">
+                 {{order.deliveryInfo.Description}}
+             </div>
+        </div>
+    </div>
+    <div class="order">
+        <table class="table mt-5">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Назва</th>
+                <th scope="col">Бренд</th>
+                <th scope="col" class="text-center">Кількісьть</th>
+                <th scope="col" class="text-center">Ціна</th>
+                <th scope="col" class="text-center">Загальна ціна</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of order.basket ; let i = index">
+                <th scope="row">{{ i+1 }}</th>
+                <td>{{ item.name }}</td>
+                <td>{{item.brand}}</td>
+                <td class="text-center">{{item.count}}</td>
+                <td class="text-center">{{item.price}}₴</td>
+                <td class="text-center">{{item.price * item.count}}₴</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <p class="total">Загальна сума: {{order.total}}₴</p>
+</div>

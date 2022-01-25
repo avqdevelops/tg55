@@ -1,0 +1,41 @@
+<main class="bg">
+    <section class="catalogBg">
+        <div class="bgimg">
+            <div class="mask">
+                <div class="title">{{product.name}}</div>
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="img-wrapper d-flex">
+                <pinch-zoom style="height: 500px;">
+                    <img [src]="product.imagePath" width="500" height="500">
+                </pinch-zoom>
+                <div class="wrapper">
+                    <div class="button-wrapper">
+                        <div class="price">{{ product.price }} <span class="icon">₴</span></div>
+                        <button type="button" class="btn btn-success" (click)="addToCart()">В корзину</button>
+                    </div>
+                    <div class="detail">
+                        <p class="info-item"><span class="item">Бренд:</span> <span class="info">{{product.brand}}
+                            </span></p>
+                        <p class="info-item"><span class="item">Артикул:</span> <span
+                                class="info">{{product.articleNumber}}</span></p>
+                        <p class="info-item">
+                            <span class="item">Доставка:</span>
+                        </p>
+                        <p class="text">Самовивіз,</p>
+                        <img src="assets/images/Nova_Poshta_2014_logo.svg.png" width="180px" height="60px">
+                        <p class="info-item"><span class="item">Оплата:</span> 
+                            <p class="text">Готівкою,</p>
+                            <img src="assets/images/visa-clip-art-1.png" width="180" height="60">
+                    </div>
+                </div>
+
+            </div>
+            <div class="description">
+                <p>Опис:</p>
+                {{product.description}}
+            </div>
+        </div>
+    </section>
+</main>

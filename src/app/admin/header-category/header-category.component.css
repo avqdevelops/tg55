@@ -1,1 +1,38 @@
-/* No CSS *//*# sourceMappingURL=header-category.component.css.map */
+::ng-deep .modal-backdrop {
+  z-index: 550;
+  display: none;
+}
+
+.sub-category-container {
+  height: auto;
+  max-height: 200px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  padding: 20px;
+}
+
+.sub-category-container .sub-category-input {
+  width: 35%;
+}
+
+.sub-category-container .delete-icon {
+  width: 14px;
+  height: 27px;
+  position: relative;
+  display: block;
+}
+
+.sub-category-container .delete-icon::before {
+  content: "\f1f8";
+  font-family: FontAwesome;
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  left: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+/*# sourceMappingURL=header-category.component.css.map */

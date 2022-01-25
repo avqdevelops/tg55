@@ -81,14 +81,16 @@ header {
                         justify-content: center;
                         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
                         color: white;
-                        font-size: 18px;
+                        font-size: 16px;
                     }
 
                     &-dropdown {
                         position: absolute;
                         top: 100%;
                         left: 0;
-                        height: 0;
+                        height: auto;
+                        visibility: hidden;
+                        opacity: 0;
                         overflow: hidden;
                         width: 300px;
                         list-style: none;
@@ -96,7 +98,7 @@ header {
                         color: white;
                         border-bottom-left-radius: 10px;
                         border-top-right-radius: 10px;
-                        transition: all 0.2s;
+                        transition: all 0.5s;
                         li {
                             padding: 0 10px;
                             margin: 20px 0;
@@ -120,11 +122,11 @@ header {
                 }
                 :hover {
                     .nav-link-dropdown {
-                        margin: auto;
-                        height: auto;
+                        visibility: visible;
+                        opacity: 1;
                     }
                     .nav-link-item {
-                        color: #0101c4da;
+                        color: #0d6efd;
                     }
                     margin: 2px 0;
                     transition: all 0.5s;
@@ -148,7 +150,8 @@ header {
                 width: 35px;
                 height: 35px;
                 margin: 0 20px;
-                background-image: radial-gradient(#2a2add, #181818a4);
+                background-color: #2234ae;
+                background-image: linear-gradient(315deg, #2234ae 0%, #191714be 74%);
                 border-radius: 5px;
                 display: flex;
                 align-items: center;
@@ -164,7 +167,6 @@ header {
                 text-decoration: none;
                 .basket {
                     height: 70px;
-                    width: 150px;
                     display: flex;
                     align-items: center;
                     flex-direction: column;
@@ -189,13 +191,15 @@ header {
 }
 
 .modal-basket {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
     top: 0;
     width: 100%;
     height: 100vh;
     background-color: rgba(53, 53, 53, 0.503);
     position: fixed;
-    z-index: 500;
+    z-index: 10000;
     .content-wrapper {
         width: 100%;
         height: 100%;
@@ -203,215 +207,10 @@ header {
         align-items: center;
         justify-content: center;
         .content {
-            width: 55%;
-            height: 95%;
-            background-color: rgb(85, 85, 85);
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            border-radius: 10px;
-            overflow: hidden;
+            width: 80%;
             .mask {
                 width: 100%;
                 height: 100%;
-                // background-color: rgba(0, 0, 0, 0.558);
-                .header-modal {
-                    margin: 0 20px;
-                    height: 80px;
-                    border-bottom: 1px solid white;
-                    display: flex;
-                    align-items: center;
-                    position: relative;
-                    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-                    h6 {
-                        color: white;
-                        font-size: 25px;
-                        margin: 0 0 0 10px;
-                    }
-                    span {
-                        position: absolute;
-                        width: 15px;
-                        height: 15px;
-                        top: 30%;
-                        right: 2%;
-                        color: red;
-                        &::after {
-                            color: inherit;
-                            content: "\f00d";
-                            font-family: FontAwesome;
-                            font-size: 18px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: flex-end;
-                        }
-                        &:hover {
-                            color: #0b5ed7;
-                            transition: all 0.5s;
-                        }
-                    }
-                }
-                .table-wrapper {
-                    height: 400px;
-                    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-
-                    tbody {
-                        color: white;
-                        display: block;
-                        overflow: auto;
-                    }
-                    thead,
-                    tbody tr {
-                        display: table;
-                        width: 100%;
-                        table-layout: fixed;
-                        color: white;
-                    }
-                    thead {
-                        font-size: 24px;
-                    }
-
-                    table {
-                        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-                        text-align: center;
-                        thead,
-                        tbody tr {
-                            display: table;
-                            width: 100%;
-                            table-layout: fixed;
-                        }
-
-                        tbody {
-                            width: 100%;
-                            display: block;
-                            height: 400px;
-                            overflow: auto;
-                            .item-products {
-                                height: 130px;
-                                td {
-                                    .remove-wrap {
-                                        width: 100%;
-                                        height: 100%;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        .remove {
-                                            color: red;
-                                            &::after {
-                                                color: inherit;
-                                                content: "\f00d";
-                                                font-family: FontAwesome;
-                                                font-size: 18px;
-                                                display: flex;
-                                                align-items: center;
-                                                justify-content: flex-end;
-                                            }
-                                            &:hover {
-                                                color: #0b5ed7;
-                                                transition: all 0.5s;
-                                            }
-                                        }
-                                    }
-                                    .product-wrap {
-                                        .image {
-                                            width: 40%;
-                                            height: 40%;
-                                            img {
-                                                width: 100%;
-                                                height: 100%;
-                                            }
-                                        }
-                                        .text{
-                                            margin: 10px 0 0 0;
-                                            text-align: right;
-                                            font-size: 20px;
-                                        }
-                                    }
-                                    .counter-wrapper {
-                                        width: 100%;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        .counter {
-                                            width: 75px;
-                                            height: 40px;
-                                            background-color: rgba(253, 253, 253, 0.896);
-                                            border: 1px solid rgb(221, 221, 221);
-                                            border-radius: 5px;
-                                            position: relative;
-                                            .arrow-wrap {
-                                                height: 100%;
-                                                width: 35%;
-                                                .arrow-up {
-                                                    height: 50%;
-                                                    display: block;
-                                                    position: relative;
-                                                    color: black;
-                                                    &::after {
-                                                        position: absolute;
-                                                        top: 5%;
-                                                        color: inherit;
-                                                        content: "\f077";
-                                                        font-family: FontAwesome;
-                                                        font-size: 12px;
-                                                    }
-                                                    &:hover {
-                                                        color: #0b5ed7;
-                                                        transition: all 0.5s;
-                                                    }
-                                                }
-                                                .arrow-down {
-                                                    height: 50%;
-                                                    position: relative;
-                                                    display: block;
-                                                    color: black;
-                                                    &::after {
-                                                        position: absolute;
-                                                        top: 0;
-                                                        color: inherit;
-                                                        content: "\f078";
-                                                        font-family: FontAwesome;
-                                                        font-size: 12px;
-                                                    }
-                                                    &:hover {
-                                                        color: #0b5ed7;
-                                                        transition: all 0.5s;
-                                                    }
-                                                }
-                                            }
-                                            .count {
-                                                color: black;
-                                                width: 30%;
-                                                position: absolute;
-                                                top: 8%;
-                                                font-size: 22px;
-                                                font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-                                                    sans-serif;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .total {
-                    padding: 20px 80px 0 0;
-                    font-size: 30px;
-                    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-                    color: white;
-                    span {
-                        color: #0b5ed7;
-                    }
-                }
-                .button-wrapper {
-                    margin: 30px auto;
-                    width: 70%;
-                    display: flex;
-                    justify-content: space-between;
-                    button {
-                        font-size: 20px;
-                    }
-                }
             }
         }
     }
@@ -423,4 +222,34 @@ header {
 
 .header-else {
     background-color: rgba(28, 28, 29, 0.966);
+}
+
+:host {
+    .wrapper {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        h1 {
+            font-size: 40px;
+        }
+        .button-wrapper {
+            margin: 80px 0 0 20px;
+            width: 100%;
+        }
+    }
+}
+
+.modal-login {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(53, 53, 53, 0.503);
+    z-index: 10000;
+    
 }

@@ -1,0 +1,173 @@
+.category-title {
+    width: 95%;
+    height: 60px;
+    margin: 20px auto;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    .save {
+        color: #fff;
+        background-color: #1e91cf;
+        border-color: #197bb0;
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        span {
+            &::before {
+                content: "\f0c7";
+                font-family: FontAwesome;
+                color: inherit;
+                font-size: 16px;
+            }
+        }
+    }
+    .back {
+        color: #666;
+        background-color: #fff;
+        border-color: #ddd;
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        span {
+            &::before {
+                content: "\f060";
+                font-family: FontAwesome;
+                color: inherit;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.container {
+    .wrapper {
+        display: flex;
+        .col {
+            width: 415px !important;
+            margin: 0 40px 0 0;
+            border: 1px solid #dcdcdc;
+            .col-header {
+                padding: 0 30px;
+                height: 55px;
+                border-bottom: 1px solid #dcdcdc;
+                background-color: #f6f6f6;
+                font-size: 16px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                .basket-icon {
+                    margin: 0 10px 0 0;
+                    &::before {
+                        content: "\f07a";
+                        font-family: FontAwesome;
+                        color: inherit;
+                        font-size: 16px;
+                    }
+                }
+                .delivery-icon{
+                    margin: 0 10px 0 0;
+                    &::before {
+                        content: "\f0d1";
+                        font-family: FontAwesome;
+                        color: inherit;
+                        font-size: 16px;
+                    }
+                }
+                .customer-icon{
+                    margin: 0 10px 0 0;
+                    &::before {
+                        content: "\f007";
+                        font-family: FontAwesome;
+                        color: inherit;
+                        font-size: 16px;
+                    }
+                }
+            }
+            .col-item{
+                height: 50px;
+                border-bottom: 1px solid #dcdcdc;
+                display: flex;
+                align-items: center;
+                padding: 0 10px;
+                font-weight: bold;
+                .item-ico{
+                 width: 28px ;
+                 height: 28px ;
+                 background-color: #54b7d3 ;
+                 border-radius: 5px;
+                 margin: 0 20px 0 0;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                }
+                .icon-calendar{
+                    &::after{
+                        content: "\f133";
+                        font-family: FontAwesome;
+                        color: white;
+                    }
+                }
+                .icon-payment {
+                    &::after{
+                        content: "\f0d6";
+                        font-family: FontAwesome;
+                        color: white;
+                    }
+                }
+                .customer-icon {
+                    &::after{
+                        content: "\f007";
+                        font-family: FontAwesome;
+                        color: white;
+                    }
+                }
+                .email-icon {
+                    &::after{
+                        content: "\f0e0";
+                        font-family: FontAwesome;
+                        color: white;
+                    }
+                }
+                .phone-icon {
+                    &::after{
+                        content: "\f095";
+                        font-family: FontAwesome;
+                        color: white;
+                    }
+                }
+                .history-icon {
+                    &::after{
+                        content: "\f1da";
+                        font-family: FontAwesome;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.order{
+    margin: 20px 0 0 0;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.total{
+    text-align: right;
+    margin: 40px 0 0 ;
+    font-size: 30px;
+}
+
+.form-select{
+    width: 60%;
+    height: 70%;
+}
+
+thead{
+    font-size: 16px;
+}
+
+tbody{
+    font-size: 14px;
+    font-weight: bold;
+}

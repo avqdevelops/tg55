@@ -1,0 +1,31 @@
+<div class="category-title d-flex">
+    <h2>Категорії шапки</h2>
+    <div class="button-wrapper">
+        <button type="button" class="btn btn-primary add me-2" [routerLink]="['add']" title="Додати"><span></span></button>
+        <button type="button" class="btn btn-danger delete" (click)="deleteCategory()" [disabled]="disabled"><span></span></button>
+    </div>
+</div>
+<div class="row">
+    <table class="table">
+        <thead class="">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Назва</th>
+            <th scope="col">Під категорії</th>
+            <th scope="col">Дії</th>
+          </tr>
+        </thead>
+        <tbody class="">
+          <tr *ngFor="let item of categoryHead; let i =index">
+            <th scope="row" valign="middle"><input #deleteItem type="checkbox" name='deleteCheckbox' (change)="chooseCategory(deleteItem.checked,item._id)"></th>
+            <td valign="middle">{{item.name}}</td>
+            <td valign="middle">
+                <span *ngFor="let subCategory of item.subCategory">{{subCategory.name }},</span>
+            </td>
+            <td>
+                <button class="mx-2 btn btn-primary edit"  title="Редагувати" [routerLink]="[ 'edit', item._id ]"><span></span></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,102 @@
+.category-title {
+    height: 60px;
+    margin: 20px auto;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    .save {
+        color: #fff;
+        background-color: #1e91cf;
+        border-color: #197bb0;
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        span {
+            &::before {
+                content: "\f0c7";
+                font-family: FontAwesome;
+                color: inherit;
+                font-size: 16px;
+            }
+        }
+    }
+    .back {
+        color: #666;
+        background-color: #fff;
+        border-color: #ddd;
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        span {
+            &::before {
+                content: "\f060";
+                font-family: FontAwesome;
+                color: inherit;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.form-wrapper {
+    form {
+        width: 60%;
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            span,
+            p {
+                font-size: 18px;
+            }
+            .my-input {
+                margin: 0 0 0 30px;
+                height: 35px;
+                width: 600px;
+            }
+            .my-textarea {
+                width: 600px;
+                height: 400px;
+                resize: none;
+            }
+        }
+        .checkbox-wrapper{
+            width: 25%;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .file-wrapper {
+        width: 35%;
+        .d-flex {
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            input {
+                height: 35px;
+                width: 70%;
+            }
+            span {
+                font-size: 18px;
+            }
+        }
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    }
+    width: 100%;
+    justify-content: space-between;
+    .filter-wrapper {
+        display: none;
+        .oe-number {
+            display: none;
+        }
+        .category-wrapper {
+            display: none;
+            .sub-category {
+                display: none;
+            }
+        }
+        
+    }
+}

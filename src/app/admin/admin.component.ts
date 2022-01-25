@@ -15,10 +15,15 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scroll():void{
+    document.body.style.overflowY = 'scroll';
+  }
+
   logOut(): void {
     this.authService.logOut();
     this.router.navigate(['']);
-    this.authService.$checkLogin.next(false)
+    this.authService.$checkLogin.next(true);
+    document.body.style.overflowY = 'scroll';
   }
 
 }

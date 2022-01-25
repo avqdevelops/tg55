@@ -1,0 +1,92 @@
+<div class="category-title d-flex">
+    <h2>Продукти</h2>
+    <div class="button-wrapper">
+        <button type="button" class="btn btn-primary save me-2" title="Зберегти" (click)="saveProduct()"><span></span></button>
+        <button type="button" class="btn btn-default back" title="Скасувати" (click)="back()"><span></span></button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="form-wrapper d-flex">
+            <form [formGroup]="productForm">
+                <div class="input-container mt-4">
+                    <span>Назва:</span>
+                    <input type="text" class="form-control my-input" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" formControlName="name">
+                </div>
+                <div class="input-container mt-4">
+                    <span>Бренд:</span>
+                    <input type="text" class="form-control my-input" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" formControlName="brand">
+                </div>
+                <div class="mt-4 input-container">
+                    <span>Опис:</span>
+                    <div class="form-floating">
+                        <textarea class="form-control my-textarea" placeholder="Leave a comment here"
+                            id="floatingTextarea2" style="height: 100px" formControlName="description"></textarea>
+                    </div>
+                </div>
+                <div class="input-container mt-4">
+                    <span>Артикул:</span>
+                    <input type="text" class="form-control my-input" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" formControlName="articleNumber">
+                </div>
+                <div class="input-container mt-4">
+                    <span class="mt-2">Фільтрація:</span>
+                    <div class="d-flex align-items-center mt-2">
+                        <label for="oeNumber" class="me-1">ОЕ Номер</label>
+                        <input type="radio" id="oeNumber" name="filter" class="me-5" (click)="chooseFilter(true)">
+                        <label for="category" class="me-1">Категорії</label>
+                        <input type="radio" id="category" name="filter" (click)="chooseFilter(false)">
+                    </div>
+                </div>
+                <div class="filter-wrapper mt-5">
+                    <div class="oe-number">
+                        <div class="input-container mt-4">
+                            <span>ОЕ Номер:</span>
+                            <input type="text" class="form-control my-input" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm" formControlName="originalNumber">
+                        </div>
+                    </div>
+                    <div class="category-wrapper">
+                        <div class="input-container mt-4 category">
+                            <span>Категорія:</span>
+                            <select class="form-control my-input" (change)='loadSubCategory($event)'>
+                                <option value=""></option>
+                                <option *ngFor="let item of category">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <div class="sub-category">
+                            <div class="input-container mt-4">
+                                <span>Під категорія:</span>
+                                <select class="form-control my-input" formControlName="category">
+                                    <option value=""></option>
+                                    <option *ngFor="let item of subCategory" [ngValue]='item'>
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-container checkbox-wrapper mt-4">
+                        <span>Рекомендований?</span>
+                        <input #checkItem type="checkbox" name='checkItem' (change)="checkRecomented(checkItem.checked)">
+                    </div>
+                    <div class="input-container mt-4">
+                        <span>Ціна:</span>
+                        <input type="text" class="form-control my-input" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" formControlName="price">
+                    </div>
+                </div>
+            </form>
+            <div class="file-wrapper">
+                <div class="d-flex mt-4">
+                    <span>Зображення:</span>
+                    <input type="file" class="form-control" (change)="uploadImage($event)">
+                </div>
+                <img [src]="imgUrl" class="mt-3" *ngIf="imgUrl">
+            </div>
+        </div>
+    </div>
+</div>

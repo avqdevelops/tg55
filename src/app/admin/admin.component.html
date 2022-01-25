@@ -1,27 +1,27 @@
 <section>
-    <div class="container">
-        <div class="row">
-            <ul class="nav nav-pills nav-fill">
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="[ 'category-header' ]" routerLinkActive="active">Категорії Шапки</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="[ 'category-catalog' ]" routerLinkActive="active">Категорії каталогу</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="[ 'products' ]" routerLinkActive="active">Продукти</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="[ 'orders' ]" routerLinkActive="active">Замовлення</a>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-success"  [routerLink]="[ '' ]" >На головну</button>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-danger" (click)="logOut()">Вийти</button>
-                </li>
-            </ul>
-            <router-outlet></router-outlet>
-        </div>
-    </div>
+            <div class="admin-header">
+                <div class="nav-header">
+                   <span>Admin</span>Dashboard
+                </div>
+                <div class="button-wrapper">
+                    <button type="button" class="backToHome" [routerLink]="['']" (click)="scroll()"><span></span>На головну</button>
+                    <button type="button" class="logOut" (click)="logOut()"><span><img src="assets/images/sign-out-alt-solid.svg" width="16" height="16"></span>Вийти</button>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <nav class="column-left">
+                    <div class="header-nav">
+                        <span></span>Навігація
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item categories" [routerLink]="[ 'category-header' ]" routerLinkActive="active"><span></span>Категорії Шапки</li>
+                        <li class="nav-item products" [routerLink]="[ 'admin-products' ]" routerLinkActive="active"><span></span> Продукти</li>
+                        <li class="nav-item orders" [routerLink]="[ 'orders' ]" routerLinkActive="active"><span></span> Замовлення</li>
+                        <li class="nav-item callback" [routerLink]="[ 'orders' ]" routerLinkActive="active"><span></span> Зворотній дзвінок</li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
 </section>

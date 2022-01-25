@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AACE,SADO,CACP,eAAe,CAAA;EACb,OAAO,EAAE,GAAG;EACZ,OAAO,EAAE,IAAI;CACd",
     "sources": [
         "admin-products.component.scss"
     ],

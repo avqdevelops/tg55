@@ -1,3 +1,5 @@
+import { ProductService } from './../../shared/service/product/product.service';
+import jwt_decode from "jwt-decode";
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/service/auth/auth.service';
@@ -15,25 +17,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   public categoryHead!: any
   public loginSubscription!: Subscription;
+  public basketSubscription!: Subscription;
   public aboutPage: any;
   public adminLogin = false;
   public userLogin = false;
   public isLogin = false;
+  public countItem: any;
   fixedBoxOffsetTop: number = 0;
   fixedBoxOffsetTopOtherMethod: number = 0;
   @ViewChild('fixedBox') fixedBox!: ElementRef;
 
   constructor(
     private authService: AuthService,
-    private elem:ElementRef,
-    private categoryServices: CategoryService
-    ) {
+    private elem: ElementRef,
+    private categoryServices: CategoryService,
+    private productServices: ProductService
+  ) {
   }
 
   ngOnInit(): void {
     this.checkLogin();
     this.checkChange();
     this.loadCategory();
+    this.loadCountBasket();
+    this.checkChangeBasket();
   }
 
   @HostListener("window:scroll", [])
@@ -53,11 +60,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  loadCategory():void{
-    this.categoryServices.loadHeaderCategory().subscribe(e=>{
-      this.categoryHead = e
+  loadCountBasket(): void {
+    if (localStorage.length > 0 && localStorage.getItem('cart')) {
+      let cart = JSON.parse(localStorage.getItem('cart') as string);
+      this.countItem = cart.length
+    } else {
+      this.countItem = false;
+    }
+  }
+
+  loadCategory(): void {
+    this.categoryServices.loadHeaderCategory().subscribe(categoryHeader => {
+      this.categoryHead = categoryHeader
       console.log(this.categoryHead);
-    }, err=>{
+    }, err => {
       console.log(`load category error`, err);
     })
   }
@@ -65,10 +81,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   checkLogin() {
     if (localStorage.length > 0 && localStorage.getItem('user')) {
       const candidate = JSON.parse(localStorage.getItem('user') as string)
-      if (candidate.role === 'ADMIN') {
+      const decodeUser: any = jwt_decode(candidate.token)
+      if (decodeUser.role === 'ADMIN') {
         this.isLogin = true;
         this.adminLogin = true
-      } else if (candidate.role === 'USER') {
+      } else if (decodeUser.role === 'USER') {
         this.isLogin = true;
         this.userLogin = true;
       } else {
@@ -76,34 +93,68 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.userLogin = false;
         this.adminLogin = false
       }
+    } else {
+      this.isLogin = false;
+      this.userLogin = false;
+      this.adminLogin = false
     }
   }
 
-  checkChange():void {
+  checkChange(): void {
     this.loginSubscription = this.authService.$checkLogin.subscribe(() => {
-      this.checkLogin()
+      this.checkLogin();
+      const modal = this.elem.nativeElement.querySelector('.modal-login');
+      modal.style.display = 'none';
     })
   }
 
-  openModal(status:boolean,event:any):void{
+  checkChangeBasket() {
+    this.basketSubscription = this.productServices.$checkBasket.subscribe(() => {
+      this.loadCountBasket();
+    })
+  }
+
+  openModal(status: boolean, event: any): void {
     const modal = this.elem.nativeElement.querySelector('.modal-basket');
-    if(status){
-      document.body.style.overflowY ='hidden'
-      modal.style.display = 'block';
-    } else{
-      const close = event.target.className 
-      close.split(' ').forEach((elem:any) => {
-        if(elem == 'close' ){
-          modal.style.display = 'none';
-          document.body.style.overflowY ='scroll';
+    if (status) {
+      document.body.style.overflowY = 'hidden'
+      modal.style.opacity = '1';
+      modal.style.visibility = 'visible';
+    } else {
+      const close = event.target.className
+      close.split(' ').forEach((elem: any) => {
+        if (elem == 'close') {
+          modal.style.opacity = '0';
+          modal.style.visibility = 'hidden';
+          document.body.style.overflowY = 'scroll';
+        }
+      });
+    }
+  }
+  openLogin(status: boolean, event: any): void {
+    const modal = this.elem.nativeElement.querySelector('.modal-login');
+    if (status) {
+      document.body.style.overflowY = 'hidden'
+      modal.style.opacity = '1';
+      modal.style.visibility = 'visible';
+    } else {
+      const close = event.target.className
+      close.split(' ').forEach((elem: any) => {
+        if (elem == 'close') {
+          modal.style.opacity = '0';
+          modal.style.visibility = 'hidden';
+          document.body.style.overflowY = 'scroll';
         }
       });
     }
   }
 
+
   ngOnDestroy(): void {
     if (this.loginSubscription) {
       this.loginSubscription.unsubscribe
+    } else if (this.basketSubscription) {
+      this.basketSubscription.unsubscribe()
     }
   }
 
