@@ -26,14 +26,14 @@
       </div>
       <nav>
          <ul class="nav-wrapper">
-            <li class="nav-link" *ngFor="let category of categoryHead">
+            <li class="nav-link mycathead" *ngFor="let category of categoryHead">
                <a class="nav-link-item">{{category.name}}</a>
                <ul class="nav-link-dropdown">
                   <li *ngFor="let item of category.subCategory" [routerLink]="[ '/catalog', item.path ]"> <img
                         src="assets/images/angle-double-right.svg">{{item.name}}</li>
                </ul>
             </li>
-            <li class="nav-link">
+            <li class="nav-link " id="avtoSearch">
                <a class="nav-link-item" [routerLink]="['']">Пошук по Авто</a>
             </li>
          </ul>

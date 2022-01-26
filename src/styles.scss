@@ -38,6 +38,7 @@ $client-theme: mat.define-light-theme((
   padding: 0;
   box-sizing: border-box;
 }
+
 @font-face {
   font-family: montserrat-bold ;
   src: url(./assets/fonts/Montserrat/Montserrat-Bold.ttf);
@@ -47,6 +48,15 @@ $client-theme: mat.define-light-theme((
   src: url(./assets/fonts/Montserrat/Montserrat-Regular.ttf);
 }
 
+
+::-webkit-scrollbar{
+  background-color: #272727 !important;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  
+  background-color: #ffffff !important;
+}
 body{
   background-color: rgb(51, 51, 51);
 }

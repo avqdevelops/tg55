@@ -38,7 +38,9 @@
                         <div class="col">
                             <div class="row">{{ item.name }}</div>
                         </div>
-                        <div class="col"> <a href="#">-</a><span class="border">{{item.count}}</span><a href="#">+</a>
+                        <div class="col"> <a class="countchanger">-</a>
+                            <span class="border">{{item.count}}</span>
+                            <a class="countchanger">+</a>
                         </div>
                         <div class="col">{{item.price}} ₴
                             <span class="fa fa-times-circle" (click)="deleteProduct(item)">
