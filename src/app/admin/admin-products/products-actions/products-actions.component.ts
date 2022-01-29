@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from './../../../shared/service/product/product.service';
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
@@ -84,7 +85,7 @@ export class ProductsActionsComponent implements OnInit, OnDestroy {
     const data = new FormData;
     data.append('image', event.target.files[0])
     this.uploadeService.uploadeImage(data).subscribe(name => {
-      this.imgUrl = `http://localhost:7000/upload/${name}`;
+      this.imgUrl = `${environment.BACKEND_URL}/upload/${name}`;
       this.productForm.patchValue({
         imagePath: this.imgUrl
       })

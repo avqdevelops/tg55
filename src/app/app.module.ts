@@ -1,5 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -31,11 +31,14 @@ import { HeaderCategoryActionsComponent } from './admin/header-category/header-c
 import { HeaderCategoryTablesComponent } from './admin/header-category/header-category-tables/header-category-tables.component';
 import { ProductsTableComponent } from './admin/admin-products/products-table/products-table.component';
 import { ProductsActionsComponent } from './admin/admin-products/products-actions/products-actions.component';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';;
 import { OrdersTableComponent } from './admin/admin-orders/orders-table/orders-table.component';
 import { OrdersDetailComponent } from './admin/admin-orders/orders-detail/orders-detail.component';
 import { PinchZoomModule } from 'ngx-pinch-zoom';
+import { authInitializer } from './shared/classes/auth.initializer';
+import { AuthService } from './shared/service/auth/auth.service';
+import { TokenInterceptor } from './shared/classes/token.interceptor';
+import { ErrorInterceptor } from './shared/classes/error.interseptor';
 
 
 @NgModule({
@@ -78,7 +81,11 @@ import { PinchZoomModule } from 'ngx-pinch-zoom';
     ToastrModule.forRoot(),
     PinchZoomModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_INITIALIZER, useFactory: authInitializer, multi: true, deps: [AuthService] },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

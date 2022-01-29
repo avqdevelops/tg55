@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public adminLogin = false;
   public userLogin = false;
   public isLogin = false;
+  public userName:string = ''
   public countItem: any;
   fixedBoxOffsetTop: number = 0;
   fixedBoxOffsetTopOtherMethod: number = 0;
@@ -78,34 +79,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
     })
   }
 
+
+
+  checkChange(): void {
+    this.loginSubscription = this.authService.$changeLoginSubject.subscribe(() => {
+      this.checkLogin()
+    })
+  }
+
   checkLogin() {
-    if (localStorage.length > 0 && localStorage.getItem('user')) {
-      const candidate = JSON.parse(localStorage.getItem('user') as string)
-      const decodeUser: any = jwt_decode(candidate.token)
-      if (decodeUser.role === 'ADMIN') {
-        this.isLogin = true;
-        this.adminLogin = true
-      } else if (decodeUser.role === 'USER') {
-        this.isLogin = true;
-        this.userLogin = true;
+    if (this.authService.userSubject.value) {
+      if (this.authService.userSubject.value.role === 'ADMIN') {
+        this.adminLogin = true;
+        this.isLogin = true
       } else {
-        this.isLogin = false;
-        this.userLogin = false;
+        this.userName = this.authService.userSubject.value.firstName;
+        this.isLogin = true
+        this.userLogin = true
         this.adminLogin = false
       }
     } else {
-      this.isLogin = false;
-      this.userLogin = false;
+      this.userName = ''
+      this.isLogin = false
       this.adminLogin = false
     }
-  }
-
-  checkChange(): void {
-    this.loginSubscription = this.authService.$checkLogin.subscribe(() => {
-      this.checkLogin();
-      const modal = this.elem.nativeElement.querySelector('.modal-login');
-      modal.style.display = 'none';
-    })
   }
 
   checkChangeBasket() {
